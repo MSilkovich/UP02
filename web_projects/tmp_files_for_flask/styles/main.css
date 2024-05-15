@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'Consolas';
+    src: url('/fonts/CONSOLA.TTF');
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    font-family: Consolas;
+}
+
+.main-div {
+    width: 70vw;
+    min-height: 100vh; /* Занимает всю высоту видимой области */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 224, 165);
+}
+
+#column-button-container {
+    margin-top: 7%;
+    margin-left: 3.2%;
+    display: flex;
+    width: 60%;
+    justify-content: flex-start; /* align buttons to the left */
+}
+
+#csv-button-container {
+    margin-top: 7%;
+    display: flex;
+    width: 60%;
+    justify-content: flex-end; /* align buttons to the right */
+	right: 10%;
+}
+
+#add-column-btn {
+    padding: 7px 15px;
+    margin-right: 2%;
+}
+
+#add-column-btn:hover {
+    background-color: #e0e0e0;
+}
+
+#remove-column-btn {
+    padding: 2px 18px 5px 18px;
+    font-size: 35px;
+}
+
+#remove-column-btn:hover {
+    background-color: #e0e0e0;
+}
+
+#load-from-csv-btn {
+    padding: 7px 15px;
+    margin-right: 2%;
+}
+
+#load-from-csv-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.button-container {
+    margin-top: 7%;
+    margin-bottom: 0.5%;
+    display: flex;
+    overflow-x: auto;
+    width: 86%;
+}
+
+.button-container button {
+    background-color: aliceblue;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.table-container {
+    justify-content: center;
+    width: 60vw;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1.5px solid black;
+    border-radius: 100px;
+    text-align: center;
+    padding: 5px;
+}
+
+td input {
+    background-color: transparent;
+    max-width: 70px;
+    border: none; /* Hide input field border */
+    font-size: 20px;
+}
+
+th {
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+td input:focus {
+    outline: none;
+}
+
+/* Убираем стрелочки у полей ввода чисел */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    width: 82%;
+}
+
+.tabs-container button {
+    flex: 1;
+    background-color: aliceblue;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    font-size: 20px;
+}
+
+.tabs-container button:not(:last-child) {
+    margin-right: -1px; /* Убираем между кнопками отступ, чтобы они прилегали друг к другу */
+}
+
+.tabs-container button.active {
+    background-color: azure;
+    font-size: 24px;
+}
+
+.content-container {
+    border: 5px solid azure;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    width: 80%;
+}
+
+.content-container div {
+    display: none;
+    font-size: 20px;
+}
+
+/* .content-container div:first-child {
+    display: block;
+} */
+
+/* #content-12 { }
+
+#content-3 { }
+
+#content-4 { } */
+
+#theory-div {
+    margin-top: 5%;
+    border-top: 3px solid black;
+    width: 80%;
+}
