@@ -34,4 +34,4 @@ HTML, CSS и JavaScript для пользовательского интерфе
 
 Михаил Силкович (МОЯ ПОЧТА) - больше не на бутл
 
-![ЭТО ОТСЫЛКА](blob:https://web.telegram.org/deffaf53-b5f2-4b5b-b5d6-df4178c47ab6)
+![ЭТО ОТСЫЛКА](https://www.notion.so/16-31b0a75870614a36978b5fd45cacc6e6?pvs=4#37135206b5824c42b8200d7673a614ec)
