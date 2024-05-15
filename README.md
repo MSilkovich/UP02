@@ -34,4 +34,4 @@ HTML, CSS и JavaScript для пользовательского интерфе
 
 Михаил Силкович (МОЯ ПОЧТА) - больше не на бутл
 
-![ЭТО ОТСЫЛКА](https://kartinkof.club/uploads/posts/2022-03/1648212662_8-kartinkof-club-p-mem-polskaya-korova-8.jpg)
+![ЭТО ОТСЫЛКА](blob:https://web.telegram.org/deffaf53-b5f2-4b5b-b5d6-df4178c47ab6)
