@@ -11,6 +11,7 @@ html, body {
     align-items: center;
     background-color: aliceblue;
     font-family: Consolas;
+    font-size: 20px;
 }
 
 .main-div {
@@ -154,7 +155,10 @@ input[type=number]::-webkit-outer-spin-button {
     border: 5px solid azure;
     border-radius: 0 0 10px 10px;
     padding: 10px;
+
     width: 80%;
+    display: flex;
+    align-items: center;
 }
 
 .content-container div {
@@ -172,8 +176,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 #content-4 { } */
 
-#theory-div {
+#theory-container {
     margin-top: 5%;
     border-top: 3px solid black;
     width: 80%;
 }
+
+/* #theory-div {
+    margin-top: 5%;
+    border-top: 3px solid black;
+    width: 80%;
+} */

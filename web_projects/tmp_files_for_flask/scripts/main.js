@@ -4,23 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function showContent(tabName) {
-    const allContent = document.querySelectorAll('.content-container > div');
-    allContent.forEach(content => {
-        content.style.display = 'none';
-    });
+    const selectedContent = document.getElementById(`content-12`);
 
-    const selectedContent = document.getElementById(`content-${tabName}`);
-    if (selectedContent) {
-        let fileName = "";
-        switch (tabName) {
-            case '12': { fileName = 'approximation.html'; break; }
-            case '3': { fileName = 'comparison.html'; break; }
-            case '4': { fileName = 'analyse.html'; break; }
-        }
+    selectedContent.style.display = 'block';
+    selectedContent.textContent = null;
 
-        loadHTML(fileName, `content-${tabName}`);
-            
-        selectedContent.style.display = 'block';
+    switch (tabName) {
+        case '12': { loadHTML(`approximation.html`, `content-12`); break; }
+        case '3': { loadHTML(`comparison.html`, `content-12`); break; }
+        case '4': { loadHTML(`analyse.html`, `content-12`); break; }
     }
 }
 
@@ -150,7 +142,7 @@ function loadHTML(file, tag) {
         .then(response => response.text())
         .then(data => {
             const myDiv = document.getElementById(tag);
-            myDiv.innerHTML = data;
+            myDiv.outerHTML = data;
         })
         .catch(error => {
             console.log('An error occurred:', error);
