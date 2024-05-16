@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.root {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.chart-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px 20px;
+}
+
+.text-block {
+    flex-basis: 30%;
+    margin: 10px 0;
+}
+
+.text-block h2 {
+    margin-bottom: 10px;
+}

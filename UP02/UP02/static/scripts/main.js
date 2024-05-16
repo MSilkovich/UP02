@@ -4,22 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function showContent(tabName) {
-    const allContent = document.querySelectorAll('.content-container > div');
-    allContent.forEach(content => {
-        content.style.display = 'none';
-    });
-
-    const selectedContent = document.getElementById(`content-${tabName}`);
+    const selectedContent = document.getElementById(`container-1234`);
+    
     if (selectedContent) {
-        let fileName = "";
         switch (tabName) {
-            case '12': { fileName = 'approximation.html'; break; }
-            case '3': { fileName = 'comparison.html'; break; }
-            case '4': { fileName = 'analyse.html'; break; }
+            case '12': { loadHTML('approximation.html', 'container-1234'); break; }
+            case '3': { loadHTML('comparison.html', 'container-1234'); break; }
+            case '4': { loadHTML('analyse.html', 'container-1234'); break; }
         }
-
-        loadHTML(fileName, `content-${tabName}`);
-            
+        
         selectedContent.style.display = 'block';
     }
 }
@@ -146,11 +139,12 @@ function loadFromCSV() {
 }
 
 function loadHTML(file, tag) {
-    fetch(file)
+    fetch(`/load-html/${file}/${tag}`)
         .then(response => response.text())
         .then(data => {
             const myDiv = document.getElementById(tag);
-            myDiv.innerHTML = data;
+            myDiv.innerHTML = ''; // очищаем содержимое контейнера
+            myDiv.outerHTML = data; // устанавливаем новый фрагмент разметки
         })
         .catch(error => {
             console.log('An error occurred:', error);

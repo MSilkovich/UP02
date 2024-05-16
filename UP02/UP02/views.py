@@ -3,8 +3,10 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
+import os
+from flask import abort, render_template, render_template_string
 from UP02 import app
+from .code import create_chart
 
 @app.route('/')
 @app.route('/home')
@@ -35,3 +37,13 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+
+@app.route('/load-html/<file>/<tag>')
+def load_html(file, tag):
+    with open(f'UP02\\UP02\\templates\\{file}', 'r') as f:
+        html = f.read()
+        if file == "comparison.html":
+            chart = create_chart()
+            return render_template_string(html, tag=tag, chart=chart)
+        return render_template_string(html, tag=tag)

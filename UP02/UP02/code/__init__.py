@@ -1,1 +1,1 @@
-from comparations import *
+from .comparations import *

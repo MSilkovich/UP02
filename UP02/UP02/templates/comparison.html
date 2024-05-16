@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear and Quadratic Approximation Comparison</title>
+    <!-- <link rel="stylesheet" href="UP02\UP02\static\content\compare.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/compare.css') }}">
+</head>
+<body>
+    <div id="container-1234" class="content-container" class="root">
+        <h1>Linear and Quadratic Approximation Comparison</h1>
+        <div class="chart-container">
+            <img id="chart" src="{{ chart }}" alt="Chart">
+        </div>
+        <div class="text-container">
+            <div class="text-block">
+                <h2>Коэффиченты корреляции</h2>
+                <p>Коэффициент корреляции (обычно обозначается как r) показывает степень линейной зависимости между двумя переменными. Он принимает значения от -1 до 1. Значение 1 означает положительную линейную корреляцию, -1 - отрицательную, а 0 - отсутствие линейной зависимости.</p>
+                <table>
+                    <tr>
+                        <th>Линейная</th>
+                        <td>{{ lr_cor }}</td>
+                    </tr>
+                    <tr>
+                        <th>Квадратичная</th>
+                        <td>{{ sq_cor }}</td>
+                    </tr>
+                </table>            </div>
+            <div class="text-block">
+                <h2>Text Block 2</h2>
+                <p>Коэффициент детерминации (R-квадрат) показывает, какой процент изменчивости зависимой переменной объясняется независимыми переменными в модели. Он также принимает значения от 0 до 1. Значение близкое к 1 указывает на то, что модель хорошо объясняет изменчивость данных, а значение близкое к 0 говорит о том, что модель плохо объясняет данные.</p>
+                <table>
+                    <tr>
+                        <th>Линейная</th>
+                        <td>{{ lr_deter }}</td>
+                    </tr>
+                    <tr>
+                        <th>Квадратичная</th>
+                        <td>{{ sq_deter }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="text-block">
+                <h2>Результаты сравнения</h2>
+                <h2><b><i>{{ res_str }}</i></b></h2>
+                <p>коэффициент корреляции помогает понять степень связи между переменными, а коэффициент детерминации помогает оценить, насколько хорошо модель подходит для объяснения данных.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
