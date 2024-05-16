@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     addColumn(20);
-    loadHTML();
+    loadHTML('approximation.html', 'theory-div');
 });
 
 function showContent(tabName) {
@@ -13,19 +13,12 @@ function showContent(tabName) {
     if (selectedContent) {
         let fileName = "";
         switch (tabName) {
-            case '12': { fileName = "approximation.html"; break; }
-            case '3': { fileName = "comparison.html"; break; }
-            case '4': { fileName = "analyse.html"; break; }
+            case '12': { fileName = 'approximation.html'; break; }
+            case '3': { fileName = 'comparison.html'; break; }
+            case '4': { fileName = 'analyse.html'; break; }
         }
 
-        fetch(`${fileName}`)
-            .then(response => response.text())
-            .then(data => {
-                selectedContent.innerHTML = data;
-            })
-            .catch(error => {
-                console.log("An error occurred:", error);
-            });
+        loadHTML(fileName, `content-${tabName}`);
             
         selectedContent.style.display = 'block';
     }
@@ -152,11 +145,11 @@ function loadFromCSV() {
     input.click();
 }
 
-function loadHTML() {
-    fetch('approximation.html')
+function loadHTML(file, tag) {
+    fetch(file)
         .then(response => response.text())
         .then(data => {
-            const myDiv = document.getElementById('theory-div');
+            const myDiv = document.getElementById(tag);
             myDiv.innerHTML = data;
         })
         .catch(error => {
