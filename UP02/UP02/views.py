@@ -4,7 +4,7 @@ Routes and views for the flask application.
 
 from datetime import datetime
 import os
-from flask import abort, render_template, render_template_string
+from flask import abort, make_response, render_template, render_template_string
 from UP02 import app
 from .code import create_chart
 
@@ -23,9 +23,8 @@ def contact():
     """Renders the contact page."""
     return render_template(
         'contact.html',
-        title='Contact',
+        title='Контакты',
         year=datetime.now().year,
-        message='Your contact page.'
     )
 
 @app.route('/about')
@@ -41,12 +40,17 @@ def about():
 
 @app.route('/load-html/<file>/<tag>')
 def load_html(file, tag):
-    with open(f'UP02/templates/{file}', 'r') as f:
+    with open(f'UP02/UP02/templates/{file}', 'r', encoding="utf-8") as f:
         html = f.read()
-        if file == "comparison.html":
-            chart = create_chart()
-            return render_template_string(html, tag=tag, chart=chart)
-        return render_template_string(html, tag=tag)
+        # if file == "comparison.html":
+        #     chart = create_chart()
+        #     return render_template_string(html, tag=tag, chart=chart)
+
+        # return render_template_string(html, tag=tag)
+
+        response = make_response(render_template_string(html, tag=tag))
+        response.headers['Content-Type'] = 'text/html; charset=UTF-8'
+        return response
 
 
 @app.route('/theory')

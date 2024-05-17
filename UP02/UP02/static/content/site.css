@@ -40,3 +40,33 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.navbar-inverse {
+    background-color: #f8f8f8; /* Светлый цвет фона */
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #775533; /* Темно-серый цвет текста при наведении */
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #333; /* Светлый цвет шрифта */
+    font-size: 20px; /* Размер шрифта */
+}
+
+.navbar-nav > li > a:after {
+    margin-left: 20px;
+    font-size: 20px; /* Размер шрифта */
+    content: "|"; /* Разделитель между ссылками */
+}
+
+.navbar-nav > li:last-child > a:after {
+    content: ""; /* Удаляем разделитель у последней ссылки */
+}
+
+footer p {
+    font-family: "Consolas"; /* Шрифт */
+    font-size: 18px; /* Размер шрифта */
+    color: #3f3f3f;
+}

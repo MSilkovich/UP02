@@ -13,7 +13,7 @@ function showContent(tabName) {
         switch (tabName) {
             case '12': { loadHTML('approximation.html', 'container-1234'); break; }
             case '3': { loadHTML('comparison.html', 'container-1234'); break; }
-            case '4': { loadHTML('analyse.html', 'container-1234'); break; }
+            case '4': { loadHTML('analyzing.html', 'container-1234'); break; }
         }
     }
 }

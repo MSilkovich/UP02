@@ -9,22 +9,28 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
+    background-color: #d2bda9;
     font-family: Consolas;
+}
+
+p {
+    font-family: 'Consolas';
+    margin: 0;
+    height: auto;
 }
 
 .main-div {
     width: 70vw;
     height: auto;
-    min-height: 100vh; /* Занимает всю высоту видимой области */
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(250, 242, 225);
+    background: #cea57d;
+    border-radius: 20px;
+    background-color: #cea57d
 }
 
 #column-button-container {
-    margin-top: 7%;
     margin-left: 3.2%;
     display: flex;
     width: 60%;
@@ -32,7 +38,6 @@ html, body {
 }
 
 #csv-button-container {
-    margin-top: 7%;
     display: flex;
     width: 60%;
     justify-content: flex-end; /* align buttons to the right */
@@ -40,7 +45,7 @@ html, body {
 }
 
 #add-column-btn {
-    padding: 7px 15px;
+    padding: 7px 20px;
     margin-right: 2%;
 }
 
@@ -49,7 +54,7 @@ html, body {
 }
 
 #remove-column-btn {
-    padding: 2px 18px 5px 18px;
+    padding: 2px 20px 5px 20px;
     font-size: 35px;
 }
 
@@ -58,7 +63,7 @@ html, body {
 }
 
 #load-from-csv-btn {
-    padding: 7px 15px;
+    padding: 5px 15px;
     margin-right: 2%;
 }
 
@@ -67,8 +72,8 @@ html, body {
 }
 
 .button-container {
-    margin-top: 7%;
-    margin-bottom: 0.5%;
+    margin-top: 20px;
+    margin-bottom: 2vh;
     display: flex;
     overflow-x: auto;
     width: 86%;
@@ -76,6 +81,7 @@ html, body {
 
 .button-container button {
     background-color: aliceblue;
+    border-radius: 15px;
     border: none;
     cursor: pointer;
     font-size: 30px;
@@ -84,6 +90,7 @@ html, body {
 .table-container {
     justify-content: center;
     width: 60vw;
+    margin: 10px 5px;
 }
 
 .table-wrapper {
@@ -128,14 +135,14 @@ input[type=number]::-webkit-outer-spin-button {
 .tabs-container {
     display: flex;
     justify-content: center;
-    margin-top: 2%;
+    margin-top: 10vh;
     width: 82%;
 }
 
 .tabs-container button {
     flex: 1;
-    background-color: aliceblue;
-    border: none;
+    border: 3px solid gray;
+    border-bottom-width: 0;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 10px 10px 0 0;
@@ -152,11 +159,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #container-1234 {
-    border: 5px solid azure;
+    border: 3px solid gray;
     border-radius: 0 0 10px 10px;
     display: block;
+    margin-bottom: 20px;
     padding: 10px;
-    width: 79%;
+    width: 82%;
+    height: auto;
 }
 
 /*.content-container div {
@@ -177,8 +186,68 @@ input[type=number]::-webkit-outer-spin-button {
 
 #content-4 { } */
 
-#theory-div {
-    margin-top: 5%;
-    border-top: 3px solid black;
+body {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+h1 {
     width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    font-size: 22px;
+    font-family: 'Times New Roman';
+    margin-left: 20px;
+    display: block;
+    margin-right: 20px;
+}
+
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+div.text {
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+
+div.bg {
+    width: 70%;
+    background: #cea57d;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border-radius: 50px;
+}
+
+div.line {
+    display: inline-block;
+}
+
+img.line {
+    width: 10%;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.root {
+    background: #cea57d;
+    border-radius: 50px;
+}
+
+footer p {
+    font-family: "Consolas"; /* Шрифт */
+    font-size: 18px; /* Размер шрифта */
+    color: #3f3f3f;
 }

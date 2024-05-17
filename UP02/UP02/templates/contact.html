@@ -2,15 +2,120 @@
 
 {% block content %}
 
-<h2>{{ title }}.</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Blocks Layout</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
+        .block {
+            flex: 0 0 20%; /* Ширина блока 45%, чтобы уместить два в одной строке */
+            margin: 10px;
+            border: 2px solid gray;
+            border-radius: 20px;
+        }
 
-<address>
-    <strong>Егор Иванов (разработчик):</strong>   <a href="mailto:egorchima@gmail.com">egorchima@gmail.com</a><br />
-    <strong>Даниил Кидалов (разработчик):</strong> <a href="mailto:danalex2006@yandex.ru">danalex2006@yandex.ru</a><br />
-    <strong>Осипов Руслан (разработчик):</strong> <a href="mailto:ruslanosipov2005@gmail.com">ruslanosipov2005@gmail.com</a><br />
-    <strong>Михаил Силкович (разработчик/руководитель проекта):</strong> <a href="mailto:silkovichmi20001308@gmail.com">silkovichmi20001308@gmail.com</a>
+        .block img {
+            width: 90%; /* Чтобы изображение занимало всю ширину блока */
+            display: block;
+            margin: 4.5% auto;
+            border-radius: 15px;
+        }
 
-</address>
+        .block p {
+            text-align: center;
+        }
 
-{% endblock %}
+        .block p:not(:first-of-type) {
+            margin-top: -15px;
+        }
+
+        a {
+            color: blue;
+            text-decoration-line: underline;
+        }
+
+        a:hover, a:visited {
+            color: blueviolet;
+        }
+
+        #mikhail {
+            border: 4px solid gold;
+        }
+
+        .icon-block {
+            flex-basis: 100%;
+            text-align: center;
+        }
+
+        .icon-block a {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        .icon-block img {
+            display: inline;
+            width: 50px; 
+        }   
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="block">
+            <img id="egor" src="..\static\images\gnom.jpg" alt="Изоб ражение 1">
+            <p>РАЗРАБОТЧИК</p>
+            <p>Иванов Егор Сергеевич</p>
+            <p>e-mail: <a href="mailto:egorchima@gmail.com">egorchima@gmail.com</a></p>
+            <div class="icon-block">
+                <a href="https://vk.com/gnomar"><img src="..\static\images\vk_icon.jpg" class="displayed" alt="https://vk.com/gnomar"></a>
+                <a href="https://t.me/Gnomeo48"><img src="..\static\images\telegram_icon.jpg" class="displayed" alt="https://web.telegram.org/@Gnomeo48"></a>
+            </div>
+        </div>
+        
+        <div class="block">
+            <img id="daniil" src="..\static\images\gifka.jpg" alt="Изображение 2">
+            <p>РАЗРАБОТЧИК</p>
+            <p>Кидалов Даниил Александрович</p>
+            <p class="email">e-mail: <a href="mailto:egorchima@gmail.com">danalex2006@yandex.ru</a></p>
+            <div class="icon-block">
+                <a href="https://vk.com/tosh1ro10"><img src="..\static\images\vk_icon.jpg" alt="https://vk.com/gnomar"></a>
+                <a href="https://t.me/g1fka01"><img src="..\static\images\telegram_icon.jpg" alt="https://web.telegram.org/@Gnomeo48"></a>
+            </div>
+        </div>
+
+        <div></div>
+        
+        <div class="block">
+            <img id="ruslan" src="..\static\images\rus.jpg" alt="Изображение 3">
+            <p>РАЗРАБОТЧИК</p>
+            <p>Осипов Руслан Петрович</p>
+            <p class="email">e-mail: <a href="mailto:egorchima@gmail.com">ruslanosipov2005@gmail.com</a></p>
+            <div class="icon-block">
+                <a href="https://vk.com/disslink"><img src="..\static\images\vk_icon.jpg" alt="https://vk.com/gnomar"></a>
+                <a href="https://t.me/thisslinkkk"><img src="..\static\images\telegram_icon.jpg" alt="https://web.telegram.org/@Gnomeo48"></a>
+            </div>
+        </div>
+        
+        <div id="mikhail" class="block">
+            <img src="..\static\images\silka.jpg" alt="Изображение 4">
+            <p>ВЕДУЩИЙ РАЗРАБОТЧИК</p>
+            <p>Силкович Михаил Александрович</p>
+            <p class="email">e-mail: <a href="mailto:egorchima@gmail.com">silkovichmi20001308@gmail.com</a></p>
+            <div class="icon-block">
+                <a href="https://vk.com/mkhsilka"><img src="..\static\images\vk_icon.jpg" alt="https://vk.com/gnomar"></a>
+                <a href="https://t.me/MSilka05"><img src="..\static\images\telegram_icon.jpg" alt="https://web.telegram.org/@Gnomeo48"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock content %}

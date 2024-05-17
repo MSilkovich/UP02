@@ -2,9 +2,118 @@
 
 {% block content %}
 
-<h2>{{ title }}.</h2>
-<h3>{{ message }}</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Blocks Layout</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-<p>Use this area to provide additional information.</p>
+        .block {
+            flex: 0 0 20%; /* Ширина блока 45%, чтобы уместить два в одной строке */
+            margin: 10px;
+            border: 2px solid gray;
+            border-radius: 20px;
+        }
 
-{% endblock %}
+        .block img {
+            width: 90%; /* Чтобы изображение занимало всю ширину блока */
+            display: block;
+            margin: 4.5% auto;
+            border-radius: 15px;
+        }
+
+        .block p {
+            text-align: center;
+        }
+
+        .block p:not(:first-of-type) {
+            margin-top: -15px;
+        }
+
+        a {
+            color: blue;
+            text-decoration-line: underline;
+        }
+
+        a:hover, a:visited {
+            color: blueviolet;
+        }
+
+        #mikhail {
+            border: 4px solid gold;
+        }
+
+        .icon-block {
+            flex-basis: 100%;
+            text-align: center;
+        }
+
+        .icon-block a {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        .icon-block img {
+            display: inline;
+            width: 50px; 
+        }   
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="block">
+            <img id="egor" src="images/ivanov_github.png" alt="Изоб ражение 1">
+            <p>РАЗРАБОТЧИК</p>
+            <p>Иванов Егор Сергеевич</p>
+            <p>e-mail: <a href="mailto:egorchima@gmail.com">egorchima@gmail.com</a></p>
+            <div class="icon-block">
+                <a href="https://vk.com/gnomar"><img src="images/vk_icon.png" alt="https://vk.com/gnomar"></a>
+                <a href="https://t.me/Gnomeo48"><img src="images/telegram_icon.png" alt="https://web.telegram.org/@Gnomeo48"></a>
+            </div>
+        </div>
+        
+        <div class="block">
+            <img id="daniil" src="images/kidalov_github.png" alt="Изображение 2">
+            <p>РАЗРАБОТЧИК</p>
+            <p>Кидалов Даниил Александрович</p>
+            <p class="email">e-mail: <a href="mailto:egorchima@gmail.com">danalex2006@yandex.ru</a></p>
+            <div class="icon-block">
+                <a href="https://vk.com/tosh1ro10"><img src="images/vk_icon.png" alt="https://vk.com/gnomar"></a>
+                <a href="https://t.me/g1fka01"><img src="images/telegram_icon.png" alt="https://web.telegram.org/@Gnomeo48"></a>
+            </div>
+        </div>
+
+        <div></div>
+        
+        <div class="block">
+            <img id="ruslan" src="images/osipov_github.png" alt="Изображение 3">
+            <p>РАЗРАБОТЧИК</p>
+            <p>Осипов Руслан Петрович</p>
+            <p class="email">e-mail: <a href="mailto:egorchima@gmail.com">ruslanosipov2005@gmail.com</a></p>
+            <div class="icon-block">
+                <a href="https://vk.com/disslink"><img src="images/vk_icon.png" alt="https://vk.com/gnomar"></a>
+                <a href="https://t.me/thisslinkkk"><img src="images/telegram_icon.png" alt="https://web.telegram.org/@Gnomeo48"></a>
+            </div>
+        </div>
+        
+        <div id="mikhail" class="block">
+            <img src="images/silkovich_github.png" alt="Изображение 4">
+            <p>ВЕДУЩИЙ РАЗРАБОТЧИК</p>
+            <p>Силкович Михаил Александрович</p>
+            <p class="email">e-mail: <a href="mailto:egorchima@gmail.com">silkovichmi20001308@gmail.com</a></p>
+            <div class="icon-block">
+                <a href="https://vk.com/mkhsilka"><img src="images/vk_icon.png" alt="https://vk.com/gnomar"></a>
+                <a href="https://t.me/MSilka05"><img src="images/telegram_icon.png" alt="https://web.telegram.org/@Gnomeo48"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

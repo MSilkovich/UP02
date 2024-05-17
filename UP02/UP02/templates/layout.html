@@ -22,13 +22,15 @@
         </div>
     </div>
 
-    <div class="container body-content">
-        {% block content %}{% endblock %}
-        <hr />
-        <footer>
-            <p> {{ year }} - Санкт-Петербург</p>
-        </footer>
-    </div>
+    <footer>
+        <div class="container body-content">
+            {% block content %}{% endblock %}
+            <hr />
+            <footer>
+                <p> {{ year }} - Санкт-Петербург</p>
+            </footer>
+        </div>
+    </footer>
 
     <script src="/static/scripts/jquery-1.10.2.js"></script>
     <script src="/static/scripts/bootstrap.js"></script>

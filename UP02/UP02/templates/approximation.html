@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="windows-1251">
+    <meta charset="utf-8">
     <title>Пупупууууу</title>
     <style>
         p {
             font-size: 25px;
         }
 
-        span {
+        .sigma {
             font-size: 30px;
             vertical-align: middle;
+        }
+
+        .container {
+        display: flex;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 10px;
         }
 
         #container-1234 {
@@ -27,23 +36,40 @@
 <body>
     <div id="container-1234" class="content-container">
         <h1>Многочлен первой степени</h1>
-        <p>a<sub>0</sub> = </p>
-        <p>a<sub>1</sub> = </p>
-        <p><span>Σ</span>x = </p>
-        <p><span>Σ</span>x<sup>2</sup> = </p>
-        <p><span>Σ</span>y = </p>
-        <p><span>Σ</span>xy = </p>
+
+        <div class="container">
+            <div class="column">
+                <p>a<sub>0</sub> = </p>
+                <p><span class="sigma">Σ</span>x = </p>
+                <p><span class="sigma">Σ</span>x<sup>2</sup> = </p>
+            </div>
+            <div class="column">
+                <p>a<sub>1</sub> = </p>
+                <p><span class="sigma">Σ</span>y = </p>
+                <p><span class="sigma">Σ</span>xy = </p>
+            </div>
+        </div>
+        
         <h1>Многочлен второй степени</h1>
-        <p>a<sub>0</sub> = </p>
-        <p>a<sub>1</sub> = </p>
-        <p>a<sub>2</sub> = </p>
-        <p><span>Σ</span>x = </p>
-        <p><span>Σ</span>x<sup>0</sup> = </p>
-        <p><span>Σ</span>x<sup>0</sup> = </p>
-        <p><span>Σ</span>x<sup>0</sup> = </p>
-        <p><span>Σ</span>y = </p>
-        <p><span>Σ</span>xy = </p>
-        <p><span>Σ</span>x<sup>0</sup>y = </p>
+
+        <div class="container">
+            <div class="column">
+                <p>a<sub>0</sub> = </p>
+                <p><span class="sigma">Σ</span>x = </p>
+                <p><span class="sigma">Σ</span>x<sup>2</sup> = </p>
+            </div>
+            <div class="column">
+                <p>a<sub>1</sub> = </p>
+                <p><span class="sigma">Σ</span>x<sup>3</sup> = </p>
+                <p><span class="sigma">Σ</span>x<sup>4</sup> = </p>
+            </div>
+            <div class="column">
+                <p>a<sub>2</sub> = </p>
+                <p><span class="sigma">Σ</span>y = </p>
+                <p><span class="sigma">Σ</span>xy = </p>
+                <p><span class="sigma">Σ</span>x<sup>2</sup>y = </p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

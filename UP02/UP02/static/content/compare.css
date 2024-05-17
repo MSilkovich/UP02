@@ -1,21 +1,29 @@
+@font-face {
+    font-family: 'Consolas';
+    src: url('/fonts/CONSOLA.TTF');
+}
 * {
     box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    height: auto;
 }
 
 h1, h2 {
+    font-family: 'Consolas';
     margin: 0;
+    height: auto;
+}
+
+p {
+    font-family: 'Consolas';
+    margin: 0;
+    height: auto;
 }
 
 .chart-container {
     display: flex;
     justify-content: center;
     padding: 20px;
+    height: auto;
 }
 
 .chart-container img {
@@ -28,19 +36,24 @@ h1, h2 {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 20px 20px;
+    height: auto;
 }
 
 .text-block {
+    font-family: 'Consolas';
     flex-basis: 30%;
     margin: 10px 0;
+    height: auto;
 }
 
 .text-block h2 {
+    font-family: 'Consolas';
     margin-bottom: 10px;
+    height: auto;
 }
 
 #container-1234 {
-    border: 5px solid azure;
+    border: 3px solid gray;
     border-radius: 0 0 10px 10px;
     display: block;
     padding: 30px;

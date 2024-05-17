@@ -1,33 +1,51 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="windows-1251">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/main.css') }}">
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+</head>
+<body>
+    <div class="main-div" class="root">
+        <div class="button-container">
+            <div id="column-button-container">
+                <button id="add-column-btn" onclick="addColumn(1)">+</button>
+                <button id="remove-column-btn" onclick="removeColumn(1)">-</button>
+            </div>
+            <div id="csv-button-container">
+                <button id="load-from-csv-btn" onclick="loadFromCSV()">Загрузить из .csv</button>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <div class="table-wrapper">
+                <table id="input-table">
+                    <tr>
+                        <th><b>X</b></th>
+                    </tr>
+    
+                    <tr>
+                        <th><b>Y</b></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
-<div class="jumbotron">
-    <h1>Flask</h1>
-    <p class="lead">Flask is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
+        <div class="tabs-container">
+            <button onclick="handleButtonClick('12')" id="btn12">Аппроксимация</button>
+            <button onclick="handleButtonClick('3')" id="btn3">Сравнение</button>
+            <button onclick="handleButtonClick('4')" id="btn4">Показатели анализа</button>
+        </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            Flask gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://flask.pocoo.org/docs/">Learn more &raquo;</a></p>
+        
+        <div class="content-container" id="container-1234"></div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="btn btn-default" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Microsoft Azure</h2>
-        <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
-        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
-    </div>
-</div>
+</body>
+</html>
 
 {% endblock %}

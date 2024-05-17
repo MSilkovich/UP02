@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../static/content/theory.css" />
     <title>Approximation</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="bg">
@@ -16,18 +18,43 @@
             <p>Числа, составляющие динамический ряд, называются уровнями ряда. Они могут быть представлены абсолютными числами, относительными и средними величинами.</p>
             <br>
             <p><b>Средний уровень ряда</b> рассчитывается как простое среднее арифметическое показателей динамического ряда:</p>
-            <img src="..\static\images\formula1.png" class="displayed">
+            <p><b>$$\large{\overline{x} = {\sum x_i \over n}}$$</b></p>
             <br>
             <p>Для расчета <b>абсолютного прироста</b>, <b>темпа роста</b> и <b>темпа прироста</b> используют формулы:</p>
-            <img src="..\static\images\formula22.png" class="displayed">
-            <br />
-            <p>Средние значения этих показателей равны:</p>
-            <img src="..\static\images\formula3.png" class="displayed">
+            <p><b>Абсолютный прирост базовый:</b></p>
+            <p>$$\large{\Delta y_{бi} = y_i - y_0}$$</p>
+            <p><b>Абсолютный прирост цепной:</b></p>
+            <p>$$\large{\Delta y_{цi} = y_i - y_{i-1}}$$</p>
+            <p><b>Темп прироста:</b></p>
+            <p class="inlineForm">Базовый: $$\large{T_{Пбi} = {\Delta y_{бi} \over y_0}}$$</p>
+            <p class="inlineForm">Цепной: $$\large{T_{Пцi} = {\Delta y_{цi} \over y_{i-1}}}$$</p>
+            <p><b>Темп роста:</b></p>
+            <p class="inlineForm">Базовый: $$\large{T_{рбi} = {\Delta y_{i} \over y_0}}$$</p>
+            <p class="inlineForm">Цепной: $$\large{T_{рцi} = {\Delta y_{i} \over y_{i-1}}}$$</p>
+            <p><b>Средние значения этих показателей равны:</b></p>
+            <p class="inlineForm">Средний абсолютный прирост: $$\large{\overline{\Delta y} = {y_n - y_0 \over {n - 1}}}$$</p>
+            <p class="inlineForm">Средний темп роста: $$\large{\overline{T}_p = \sqrt[n]{T_1 * T_2 * T_3 * \ldots * T_n} }$$</p>
             <br>
             <p>Провести аналитическое выравнивание динамического ряда методом наименьших квадратов, т.е. функцию <i>y = f(x)</i> , заданную таблично, аппроксимировать многочленом первой степени <i>y = P<sub>1</sub>(x) = a<sub>1</sub> + a<sub>2</sub>x</i>, для чего найдем коэффициенты <i>a<sub>1</sub></i> и <i>a<sub>2</sub></i> методом наименьших квадратов, решив систему уравнений:</p>
-            <img src="..\static\images\formula4.png" class="displayed">
+            <p class="inlineForm">Коэффициент а: $$\large{a = {\sum{x_i} \sum{y_i} - n \sum{x_iy_i} \over (\sum{x_i})^2 - n \sum{x_i^2}}}$$</p>
+            <p class="inlineForm">Коэффициент b: $$\large{b = {\sum{x_i} \sum{x_iy_i} - \sum{x_i^2} \sum{y_i} \over (\sum{x_i})^2 - n \sum{x_i^2}}}$$</p>
+            <p class="inlineForm">Коэффициент линейной парной корреляции: $$\large{r_{xy} = {n \sum{x_iy_i} - \sum{x_i} \sum{y_i} \over \sqrt{(n \sum{x_i^2} - (\sum{x_i})^2)(n \sum{y_i^2} - (\sum{y_i})^2)}}}$$</p>
+            <p class="inlineForm">Коэффициент детерминации: $$\large{R^2 = r_{xy}^2}$$</p>
             <p>Провести аналитическое выравнивание динамического ряда методом наименьших квадратов, т.е. функцию <i>y = f(x)</i> , заданную таблично, аппроксимировать многочленом второй степени <i>y = P<sub>2</sub>(x) = a<sub>0</sub> + a<sub>2</sub>x +  a<sub>2</sub>x<sub><small>2</small></sub></i>, для чего найдем коэффициенты <i>a<sub>1</sub></i> и <i>a<sub>2</sub></i> методом наименьших квадратов, решив систему уравнений:</p>
-            <img src="..\static\images\formula5.png" class="displayed">
+            <p class="inlineForm">
+                Система уравнений для нахождения коэффициентов a, b, c: $$\large{
+                \left\{
+                \begin{array}{l}
+                a\sum{x_i^2} + b\sum{x_i} + nc = \sum{y_i}, \\
+                a\sum{x_i^3} + b\sum{x_i^2} + c\sum{x_i} = \sum{x_iy_i}, \\
+                a\sum{x_i^4} + b\sum{x_i^3} + c\sum{x_i^2} = \sum{x_i^2y_i};
+                \end{array}
+                \right.
+                }$$
+            </p>
+            <p class="inlineForm">Коэффициент корреляции: $$\large{R = \sqrt{1 - {\sum{(y_i - \overset{\frown}{y_i})^2} \over \sum{(y_i - \overline{y_i})^2}}},}$$</p>
+            <p class="inlineForm">Где: $$\large{\overline y = {1 \over n} \sum{y_i}}$$</p>
+            <p class="inlineForm">Коэффициент детерминации: $$\large{R^2}$$</p>
             <br>
         </div>
     </div>

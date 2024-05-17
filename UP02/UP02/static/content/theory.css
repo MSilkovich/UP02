@@ -1,5 +1,9 @@
+@font-face {
+    font-family: 'Consolas';
+    src: url('/fonts/CONSOLA.TTF');
+}
 body {
-    background: #ffcc99;
+    background: #d2bda9;
 }
 h1 {
     width: 80%;
@@ -10,7 +14,7 @@ h1 {
 
 p {
     font-size: 22px;
-    font-family: 'Times New Roman';
+    font-family: 'Consolas';
     margin-left: 20px;
     display: block;
     margin-right: 20px;
@@ -20,7 +24,6 @@ img.displayed {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 div.text {
@@ -32,13 +35,13 @@ div.text {
 
 div.bg {
     width: 70%;
-    background: #ff7e00;
+    background: #cea57d;
     display: flex;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    border-radius: 50px;
+    border-radius: 20px;
 }
 
 div.line {
