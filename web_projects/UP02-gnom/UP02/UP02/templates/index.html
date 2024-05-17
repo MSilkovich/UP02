@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="windows-1251">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пупупууууу</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/main.css') }}">
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+</head>
+<body>
+    <div class="main-div">
+        <div class="button-container">
+            <div id="column-button-container">
+                <button id="add-column-btn" onclick="addColumn(1)">+</button>
+                <button id="remove-column-btn" onclick="removeColumn(1)">-</button>
+            </div>
+            <div id="csv-button-container">
+                <button id="load-from-csv-btn" onclick="loadFromCSV()">Загрузить из .csv</button>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <div class="table-wrapper">
+                <table id="input-table">
+                    <tr>
+                        <th><b>X</b></th>
+                    </tr>
+    
+                    <tr>
+                        <th><b>Y</b></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="tabs-container">
+            <button onclick="handleButtonClick('12')" id="btn12">Аппроксимация</button>
+            <button onclick="handleButtonClick('3')" id="btn3">Сравнение</button>
+            <button onclick="handleButtonClick('4')" id="btn4">Показатели анализа</button>
+        </div>
+
+        <div class="content-container" id="container-1234"></div
+    </div>
+</body>
+</html>
