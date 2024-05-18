@@ -58,6 +58,7 @@ p {
     display: block;
     padding: 30px;
     height: auto;
+    margin-bottom: 50px;
     width: 82%;
     overflow: hidden;
 }

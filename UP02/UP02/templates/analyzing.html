@@ -6,7 +6,7 @@
     <title></title>
     <style>
         table {
-            margin-top: 50px;
+            margin-top: 0px;
             width: 100%;
             border-collapse: collapse;
         }
@@ -25,11 +25,34 @@
         }
     </style>
 
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+            fontCache: 'global'
+        },
+        startup: {
+            ready() {
+                MathJax.startup.defaultReady();
+                MathJax.typesetClear();
+                MathJax.typeset();
+            }
+        }
+    };
+</script>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='content/compare.css') }}">
+
 </head>
 <body>
-    <table>
+    <table id="container-1234" class="content-container">
         <tr>
             <th>\(Δy_{бi}\)</th>
             <th>\(Δy_{цi}\)</th>

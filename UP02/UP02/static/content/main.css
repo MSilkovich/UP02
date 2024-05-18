@@ -6,7 +6,8 @@
 html, body {
     height: auto;
     margin: 0;
-    display: flex;
+    /* display: flex; */
+    display: block;
     justify-content: center;
     align-items: center;
     background-color: #d2bda9;
@@ -20,14 +21,15 @@ p {
 }
 
 .main-div {
-    width: 70vw;
+    /* width: 70vw; */
     height: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
     background: #cea57d;
     border-radius: 20px;
-    background-color: #cea57d
+    background-color: #cea57d;  
+    width: 100%;
 }
 
 #column-button-container {
@@ -162,7 +164,7 @@ input[type=number]::-webkit-outer-spin-button {
     border: 3px solid gray;
     border-radius: 0 0 10px 10px;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     padding: 10px;
     width: 82%;
     height: auto;
@@ -199,7 +201,7 @@ h1 {
 
 p {
     font-size: 22px;
-    font-family: 'Times New Roman';
+    font-family: 'Consolas';
     margin-left: 20px;
     display: block;
     margin-right: 20px;

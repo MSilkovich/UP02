@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Four Blocks Layout</title>
     <style>
-        @font-face {
+        /* @font-face {
             font-family: 'Consolas';
             src: url('/fonts/CONSOLA.TTF');
         }
@@ -21,14 +21,14 @@
         }
 
         .block {
-            flex: 0 0 20%; /* Ширина блока 45%, чтобы уместить два в одной строке */
+            flex: 0 0 20%; 
             margin: 10px;
-            border: 2px solid gray;
+            border: 2px solid #808080;
             border-radius: 20px;
         }
 
         .block img {
-            width: 90%; /* Чтобы изображение занимало всю ширину блока */
+            width: 90%; 
             display: block;
             margin: 4.5% auto;
             border-radius: 15px;
@@ -75,7 +75,62 @@
         p {
             margin-left: 10px;
             margin-right: 10px;
-        }  
+        }   */
+
+        @font-face {
+        font-family: 'Consolas';
+        src: url('/fonts/CONSOLA.TTF');
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .block {
+        flex: 1; /* Equal size for all blocks */
+        margin: 10px;
+        border: 2px solid #808080;
+        border-radius: 20px;
+        max-width: 25%; /* Limits maximum width to 25% */
+    }
+
+    .block img {
+        width: 100%; /* Image takes full width of the block */
+        display: block;
+        border-radius: 15px;
+    }
+
+    .block p {
+        font-family: 'Consolas';
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    a {
+        font-family: 'Consolas';
+        color: blue;
+        text-decoration-line: underline;
+    }
+
+    a:hover, a:visited {
+        color: blueviolet;
+    }
+
+    .icon-block {
+        text-align: center;
+    }
+
+    .icon-block a {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .icon-block img {
+        width: 50px
+    }
     </style>
 </head>
 <body>
