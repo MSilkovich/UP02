@@ -29,11 +29,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="runserver.py" />
+    <Compile Include="UP02\code\comparations.py" />
+    <Compile Include="UP02\code\quadratic.py" />
+    <Compile Include="UP02\code\__init__.py" />
     <Compile Include="UP02\__init__.py" />
     <Compile Include="UP02\views.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UP02\" />
+    <Folder Include="UP02\code\" />
     <Folder Include="UP02\static\" />
     <Folder Include="UP02\static\content\" />
     <Folder Include="UP02\static\fonts\" />
@@ -47,6 +51,7 @@
     <Content Include="UP02\static\content\compare.css" />
     <Content Include="UP02\static\content\main.css" />
     <Content Include="UP02\static\content\site.css" />
+    <Content Include="UP02\static\content\theory.css" />
     <Content Include="UP02\static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="UP02\static\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="UP02\static\fonts\glyphicons-halflings-regular.ttf" />
@@ -73,15 +78,13 @@
     <Content Include="UP02\templates\contact.html" />
     <Content Include="UP02\templates\index.html" />
     <Content Include="UP02\templates\layout.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterpreterReference Include="Global|PythonCore|3.12" />
+    <Content Include="UP02\templates\theory.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
       <Id>env</Id>
-      <Version>0.0</Version>
-      <Description>env (Python 3.12 (64-bit))</Description>
+      <Version>3.9</Version>
+      <Description>env (Python 3.9 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
