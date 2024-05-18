@@ -40,7 +40,7 @@ def about():
 
 @app.route('/load-html/<file>/<tag>')
 def load_html(file, tag):
-    with open(f'UP02/UP02/templates/{file}', 'r', encoding="utf-8") as f:
+    with open(f'UP02/templates/{file}', 'r', encoding="utf-8") as f:
         html = f.read()
         # if file == "comparison.html":
         #     chart = create_chart()
