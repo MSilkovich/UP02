@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Four Blocks Layout</title>
     <style>
+        @font-face {
+            font-family: 'Consolas';
+            src: url('/fonts/CONSOLA.TTF');
+        }
         .container {
             display: flex;
             justify-content: center;
@@ -31,14 +35,17 @@
         }
 
         .block p {
+            font-family: 'Consolas';
             text-align: center;
         }
 
         .block p:not(:first-of-type) {
+            font-family: 'Consolas';
             margin-top: -15px;
         }
 
         a {
+            font-family: 'Consolas';
             color: blue;
             text-decoration-line: underline;
         }
@@ -64,7 +71,11 @@
         .icon-block img {
             display: inline;
             width: 50px; 
-        }   
+        } 
+        p {
+            margin-left: 10px;
+            margin-right: 10px;
+        }  
     </style>
 </head>
 <body>

@@ -7,6 +7,37 @@
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
+
+    <style>
+        @font-face {
+            font-family: 'Consolas';
+            src: url('/fonts/CONSOLA.TTF');
+        }
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            margin-bottom: 60px;
+        }
+
+        .body-content {
+            padding-bottom: 60px;
+        }
+
+        footer {
+            align-self: center;
+            border-top: 2px solid gray;
+            position: absolute;
+            bottom: 0;
+            width: 70%;
+            padding: 10px;
+        }
+        footer p {
+            font-family: "Consolas";
+        }
+    </style>
 </head>
 
 <body>
@@ -22,14 +53,12 @@
         </div>
     </div>
 
+    <div class="container body-content">
+        {% block content %}{% endblock %}
+    </div>
+
     <footer>
-        <div class="container body-content">
-            {% block content %}{% endblock %}
-            <hr />
-            <footer>
-                <p> {{ year }} - Санкт-Петербург</p>
-            </footer>
-        </div>
+        <p> {{ year }} - Санкт-Петербург</p>
     </footer>
 
     <script src="/static/scripts/jquery-1.10.2.js"></script>
