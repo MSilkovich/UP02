@@ -2,15 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    
-    <title></title>
+    <title>Аппроксимация</title>
     <style>
-        table {
-            margin-top: 0px;
+        #analyze-table  {
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+        #analyze-table th, #analyze-table td {
             border: 1px solid black;
             padding: 8px;
             text-align: center;
@@ -23,103 +21,100 @@
             text-align: center;
             line-height: 30px;
         }
-    </style>
-
-  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        svg: {
-            fontCache: 'global'
-        },
-        startup: {
-            ready() {
-                MathJax.startup.defaultReady();
-                MathJax.typesetClear();
-                MathJax.typeset();
-            }
+        #container-1234 {
+            border: 3px solid gray;
+            border-radius: 0 0 10px 10px;
+            display: block;
+            padding: 30px;
+            height: auto;
+            width: 82%;
+            overflow: hidden;
         }
-    };
-</script>
-
-<link rel="stylesheet" href="{{ url_for('static', filename='content/compare.css') }}">
-
+    </style>
 </head>
 <body>
-    <table id="container-1234" class="content-container">
-        <tr>
-            <th>\(Δy_{бi}\)</th>
-            <th>\(Δy_{цi}\)</th>
-            <th>\(T_{Пбi}\)</th>
-            <th>\(T_{Пцi}\)</th>
-            <th>\(T_{Рбi}\)</th>
-            <th>\(T_{Рцi}\)</th>
-            <th>\(\overline{y}\)</th>
-            <th>\(\overline{Δy}\)</th>
-			<th>\(\overline{T_{р}}\)</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-    </table>
+    <div id="container-1234" class="content-container">
+        <table id="analyze-table">
+            <tr>
+                <th>Δy<sub>бi</sub></th>
+                <th>Δy<sub>цi</sub></th>
+                <th>T<sub>Пбi</sub></th>
+                <th>T<sub>Пцi</sub></th>
+                <th>T<sub>Пцi</sub></th>
+                <th>T<sub>Пцi</sub></th>
+                <th>
+                    <div class="bottom">
+                        y
+                    </div>
+                </th>
+                <th>
+                    <div class="bottom">
+                        Δy
+                    </div>
+                </th>
+                 <th>
+                    <div class="bottom">
+                        Т<sub>р</sub>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+    
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+    
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+    
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+    
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+    
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
