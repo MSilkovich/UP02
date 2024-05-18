@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UP02\" />
+    <Folder Include="UP02\code\" />
     <Folder Include="UP02\static\" />
     <Folder Include="UP02\static\code\" />
     <Folder Include="UP02\static\code\__pycache__\" />
