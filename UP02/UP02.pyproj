@@ -29,9 +29,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="runserver.py" />
-    <Compile Include="UP02\static\code\comparations.py" />
-    <Compile Include="UP02\static\code\quadratic.py" />
-    <Compile Include="UP02\static\code\__init__.py" />
+    <Compile Include="UP02\code\comparations.py" />
+    <Compile Include="UP02\code\quadratic.py" />
+    <Compile Include="UP02\code\__init__.py" />
     <Compile Include="UP02\__init__.py" />
     <Compile Include="UP02\views.py" />
   </ItemGroup>
@@ -39,8 +39,6 @@
     <Folder Include="UP02\" />
     <Folder Include="UP02\code\" />
     <Folder Include="UP02\static\" />
-    <Folder Include="UP02\static\code\" />
-    <Folder Include="UP02\static\code\__pycache__\" />
     <Folder Include="UP02\static\content\" />
     <Folder Include="UP02\static\fonts\" />
     <Folder Include="UP02\static\scripts\" />
@@ -48,8 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
-    <Content Include="UP02\static\code\__pycache__\comparations.cpython-39.pyc" />
-    <Content Include="UP02\static\code\__pycache__\__init__.cpython-39.pyc" />
     <Content Include="UP02\static\content\bootstrap.css" />
     <Content Include="UP02\static\content\bootstrap.min.css" />
     <Content Include="UP02\static\content\compare.css" />
