@@ -125,5 +125,4 @@ class RegressionMetrics:
         # with open("tmp.txt", "w") as f:
         #     f.write(plot_url)
         plt.close()
-        print(len(plot_url))
         return plot_url

@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="main-div" class="root">
-        <form id="data-form" onsubmit="return processData()">
+        <form id="data-form" class="main-div" class="root" onsubmit="return processData()">
             <div class="button-container">
                 <div id="column-button-container">
                     <button id="add-column-btn" type="button" onclick="addColumn(1); return false;">+</button>
@@ -38,12 +38,6 @@
             </div>
     
             <div class="tabs-container">
-                <!-- <button type="submit" onclick="handleButtonClick('12')" id="btn12">Аппроксимация</button>
-                <button type="submit" onclick="handleButtonClick('3')" id="btn3">Сравнение</button>
-                <button type="submit" onclick="handleButtonClick('4')" id="btn4">Показатели анализа</button> -->
-                <!-- <button type="button" onclick="processData(); handleButtonClick('12');" id="btn12">Аппроксимация</button>
-                <button type="button" onclick="processData(); handleButtonClick('3');" id="btn3">Сравнение</button>
-                <button type="button" onclick="processData(); handleButtonClick('4');" id="btn4">Показатели анализа</button> -->
                 <button type="button" onclick="processData('12');" id="btn12">Аппроксимация</button>
                 <button type="button" onclick="processData('3');" id="btn3">Сравнение</button>
                 <button type="button" onclick="processData('4');" id="btn4">Показатели анализа</button>
@@ -92,28 +86,6 @@
                     
                     return false; // Чтобы форма не отправляла данные по умолчанию
                 }
-                
-                // function processData() {
-                //     // Сбор данных из таблицы в двумерный массив
-                //     var table = document.getElementById('input-table');
-                //     var data = [];
-                    
-                //     for (var i = 0; i < table.rows.length; i++) {
-                //         var rowData = [];
-                //         for (var j = 1; j < table.rows[i].cells.length; j++) {
-                //             rowData.push(table.rows[i].cells[j].querySelector('input[type="number"]').value);
-                //         }
-                //         data.push(rowData);
-                //     }
-                    
-                //     // Отправка данных на сервер (можно использовать AJAX запрос)
-                //     var xhr = new XMLHttpRequest();
-                //     xhr.open('POST', '/load-html/<file>/<tag>', true);
-                //     xhr.setRequestHeader('Content-Type', 'application/json');
-                //     xhr.send(JSON.stringify(data));
-                    
-                //     return false; // Чтобы форма не отправляла данные по умолчанию
-                // }
             </script>
         </form>
     </div>

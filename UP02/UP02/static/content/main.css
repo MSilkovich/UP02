@@ -6,7 +6,6 @@
 html, body {
     height: auto;
     margin: 0;
-    /* display: flex; */
     display: block;
     justify-content: center;
     align-items: center;
@@ -21,7 +20,6 @@ p {
 }
 
 .main-div {
-    /* width: 70vw; */
     height: auto;
     display: flex;
     align-items: center;
@@ -36,13 +34,13 @@ p {
     margin-left: 3.2%;
     display: flex;
     width: 60%;
-    justify-content: flex-start; /* align buttons to the left */
+    justify-content: flex-start;
 }
 
 #csv-button-container {
     display: flex;
     width: 60%;
-    justify-content: flex-end; /* align buttons to the right */
+    justify-content: flex-end; 
 	right: 10%;
 }
 
@@ -114,7 +112,7 @@ td {
 td input {
     background-color: transparent;
     max-width: 70px;
-    border: none; /* Hide input field border */
+    border: none;  
     font-size: 20px;
 }
 
@@ -169,24 +167,6 @@ input[type=number]::-webkit-outer-spin-button {
     width: 82%;
     height: auto;
 }
-
-/*.content-container div {
-    display: block;
-    padding: 5%;
-    font-size: 20px;
-    height: auto;
-    overflow: hidden;
-}*/
-
-/* .content-container div:first-child {
-    display: block;
-} */
-
-/* #content-12 { }
-
-#content-3 { }
-
-#content-4 { } */
 
 body {
     margin-top: 70px;
@@ -249,7 +229,7 @@ img.line {
 }
 
 footer p {
-    font-family: "Consolas"; /* Шрифт */
-    font-size: 18px; /* Размер шрифта */
+    font-family: "Consolas"; 
+    font-size: 18px;
     color: #3f3f3f;
 }
