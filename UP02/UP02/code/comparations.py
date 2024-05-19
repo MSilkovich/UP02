@@ -58,12 +58,12 @@ class RegressionMetrics:
             коэффициент корреляции (r) для линейной регрессии
         """
 
-        y_predicted_linear = self.a_linear * self.x + self.b_linear
-        residuals_linear = self.y - y_predicted_linear
+        y_predicted_linear = self.a_linear * self.x + self.b_linear # спрогнозированные значения
+        residuals_linear = self.y - y_predicted_linear # разность реальных и спрогнозированных
         ss_res_linear = np.sum(residuals_linear ** 2)
         ss_tot_linear = np.sum((self.y - np.mean(self.y)) ** 2)
-        r_square_linear = 1 - (ss_res_linear / ss_tot_linear)
-        correlation_linear = np.corrcoef(self.x, self.y)[0, 1]
+        r_square_linear = 1 - (ss_res_linear / ss_tot_linear) # детерминация
+        correlation_linear = np.corrcoef(self.x, self.y)[0, 1] # корреляция
         return r_square_linear, correlation_linear
 
     def quadratic_regression_metrics(self):
@@ -79,12 +79,12 @@ class RegressionMetrics:
             коэффициент корреляции (r) для квадратичной регрессии
         """
 
-        y_predicted_quadratic = self.a_quadratic * self.x**2 + self.b_quadratic * self.x + self.c_quadratic
-        residuals_quadratic = self.y - y_predicted_quadratic
+        y_predicted_quadratic = self.a_quadratic * self.x**2 + self.b_quadratic * self.x + self.c_quadratic # спрогнозированные значения
+        residuals_quadratic = self.y - y_predicted_quadratic # разность реальных и спрогнозированных
         ss_res_quadratic = np.sum(residuals_quadratic ** 2)
         ss_tot_quadratic = np.sum((self.y - np.mean(self.y)) ** 2)
-        r_square_quadratic = 1 - (ss_res_quadratic / ss_tot_quadratic)
-        correlation_quadratic = np.corrcoef(self.x, self.y)[0, 1]
+        r_square_quadratic = 1 - (ss_res_quadratic / ss_tot_quadratic) # детерминация
+        correlation_quadratic = np.corrcoef(self.x, self.y)[0, 1] # корреляция
         return r_square_quadratic, correlation_quadratic
     
     def get_chart(self):
