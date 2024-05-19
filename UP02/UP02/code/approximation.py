@@ -2,10 +2,10 @@ import numpy as np
 
 
 # Создаем исходные данные
-x = np.array([0, 1, 2, 3, 4, 5])
-y = np.array([1, 3, 2, 5, 7, 8])
+# x = np.array([0, 1, 2, 3, 4, 5])
+# y = np.array([1, 3, 2, 5, 7, 8])
 
-def approximation():
+def linear_approximation(x, y):
     # Фитируем многочлен первой степени (линейная регрессия)
     p = np.polyfit(x, y, 1)
 

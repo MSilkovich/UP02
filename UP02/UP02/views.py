@@ -8,7 +8,8 @@ import time
 from flask import Response, request, jsonify
 from flask import abort, make_response, render_template, render_template_string
 from UP02 import app
-from .code import RegressionMetrics
+from .code import *
+import numpy as np
 
 
 @app.route('/')
@@ -55,13 +56,22 @@ def theory():
 def process_data(file, tag):
     data = input_validate(request.get_json())
     if data is None:
-        return "<h1>Не корректные входные данные!</h1>"
+        with open(f'UP02/UP02/templates/uncorrect_input.html', 'r', encoding="utf-8") as f:
+            html = f.read()
+            response = make_response(render_template_string(html, tag=tag, error_message=""))
+            response.headers['Content-Type'] = 'text/html; charset=UTF-8'
+            return response 
+       
+    a0, a1, _ = linear_approximation(np.array(data[0]), np.array(data[1]))
+
+    quadratic = Quadratic(np.array(data[0]), np.array(data[1]))
+    a, b, c, _ = quadratic.getCoefs()
+
     with open(f'UP02/UP02/templates/{file}', 'r', encoding="utf-8") as f:
         html = f.read()
         response: Response = None
         if file == "comparison.html":
-            import numpy as np
-            regression_metrics = RegressionMetrics(1.4285714285714282, 0.7619047619047606, 0.1249999999980923, 0.803571428570997, 1.178571428571822, np.array([0, 1, 2, 3, 4, 5]), np.array([1, 3, 2, 5, 7, 8]))
+            regression_metrics = RegressionMetrics(a0, a1, a, b, c, np.array(data[0]), np.array(data[1]))
             r_square_linear, correlation_linear = regression_metrics.linear_regression_metrics()
             r_square_quadratic, correlation_quadratic = regression_metrics.quadratic_regression_metrics()
             chart = regression_metrics.get_chart()
@@ -74,6 +84,10 @@ def process_data(file, tag):
                                                              correlation_quadratic=correlation_quadratic,
                                                              chart=chart,
                                                              resume=resume_compare(r_square_linear, r_square_quadratic)))
+        elif file == "approximation.html":
+            response = make_response(render_template_string(html, tag=tag, a0=a0, a1=a1, a=a, b=b, c=c))
+        elif file == "analyzing.html":
+            response = make_response(render_template_string(html, tag=tag))
         else:
             response = make_response(render_template_string(html, tag=tag))
         response.headers['Content-Type'] = 'text/html; charset=UTF-8'
@@ -81,6 +95,9 @@ def process_data(file, tag):
     
 
 def input_validate(data: list[str]) -> list | None:
+    """
+    Валидация и преобразование входных данных
+    """
     res = list()
     try:
         for row in data:

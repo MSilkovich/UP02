@@ -113,7 +113,6 @@ class RegressionMetrics:
         plt.legend()
         plt.title('Графики линейной и квадратичной регрессии')
         plt.grid(True)
-        # plt.show()
 
         plt.tight_layout()
 
@@ -122,7 +121,6 @@ class RegressionMetrics:
         img.seek(0)
         
         plot_url = base64.b64encode(img.getvalue()).decode()
-        # with open("tmp.txt", "w") as f:
-        #     f.write(plot_url)
         plt.close()
+        
         return plot_url

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/compare.css') }}">
+</head>
+<body>
+    <div id="container-1234" class="content-container">
+        <h1>Не корректные входные данные!</h1>
+
+        <p>Проверьте данные и попробуйте снова ({{ error_message }})</p>
+    </div>
+</body>
+</html>
