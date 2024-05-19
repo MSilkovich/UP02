@@ -29,7 +29,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="runserver.py" />
+    <Compile Include="UP02\code\approximation.py" />
     <Compile Include="UP02\code\comparations.py" />
+    <Compile Include="UP02\code\input.py" />
     <Compile Include="UP02\code\quadratic.py" />
     <Compile Include="UP02\code\__init__.py" />
     <Compile Include="UP02\__init__.py" />
