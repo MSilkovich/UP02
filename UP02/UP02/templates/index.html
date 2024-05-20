@@ -44,49 +44,6 @@
             </div>
 
             <div class="content-container" id="container-1234"></div>
-
-            <script>
-                function processData(t) {
-                    // Сбор данных из таблицы в двумерный массив
-                    var table = document.getElementById('input-table');
-                    var data = [];
-                    var file = '';
-                    var tag = '';
-
-                    for (var i = 0; i < table.rows.length; i++) {
-                        var rowData = [];
-                        for (var j = 1; j < table.rows[i].cells.length; j++) {
-                            rowData.push(table.rows[i].cells[j].querySelector('input[type="text"]').value);
-                        }
-                        data.push(rowData);
-                    }
-
-                    switch (t) {
-                        case '12': { file = 'approximation.html'; tag = 'container-1234'; break; }
-                        case '3': { file = 'comparison.html'; tag = 'container-1234'; break; }
-                        case '4': { file = 'analyzing.html'; tag = 'container-1234'; break; }
-                    }
-
-                    // Отправка данных на сервер (можно использовать AJAX запрос)
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('POST', `/load-html/${file}/${tag}`, true);
-                    xhr.setRequestHeader('Content-Type', 'application/json');
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === XMLHttpRequest.DONE) {
-                            if (xhr.status === 200) {
-                                const myDiv = document.getElementById('container-1234');
-                                // myDiv.innerHTML = ''; // очищаем содержимое контейнера
-                                myDiv.outerHTML = xhr.responseText; // устанавливаем новый фрагмент разметки
-                            } else {
-                                console.error('Ошибка при запросе на сервер');
-                            }
-                        }
-                    };
-                    xhr.send(JSON.stringify(data));
-
-                    return false; // Чтобы форма не отправляла данные по умолчанию
-                }
-            </script>
         </form>
         <div id="json-button-container">
             <button id="download-json-btn" type="button">Скачать результаты .json</button>

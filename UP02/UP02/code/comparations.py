@@ -2,6 +2,10 @@ import base64
 from io import BytesIO
 import threading
 import numpy as np
+import matplotlib, math
+
+matplotlib.use('agg')
+
 import matplotlib.pyplot as plt
 
 
@@ -82,10 +86,10 @@ class RegressionMetrics:
 
         y_predicted_quadratic = self.a_quadratic * self.x**2 + self.b_quadratic * self.x + self.c_quadratic # спрогнозированные значения
         residuals_quadratic = self.y - y_predicted_quadratic # разность реальных и спрогнозированных
-        ss_res_quadratic = np.sum(residuals_quadratic ** 2)
-        ss_tot_quadratic = np.sum((self.y - np.mean(self.y)) ** 2)
+        ss_res_quadratic = np.sum(residuals_quadratic ** 2) # квадрат разностей
+        ss_tot_quadratic = np.sum((self.y - np.mean(self.y)) ** 2) # квадрат разностей
         r_square_quadratic = 1 - (ss_res_quadratic / ss_tot_quadratic) # детерминация
-        correlation_quadratic = np.corrcoef(self.x, self.y)[0, 1] # корреляция
+        correlation_quadratic = math.sqrt(r_square_quadratic) # корреляция
         return round(r_square_quadratic, 4), round(correlation_quadratic, 4)
     
     def get_chart(self):
