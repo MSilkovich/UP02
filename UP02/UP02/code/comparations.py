@@ -1,5 +1,6 @@
 import base64
 from io import BytesIO
+import threading
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -103,24 +104,28 @@ class RegressionMetrics:
         # Квадратичная регрессия
         quadratic_regression = self.a_quadratic * self.x**2 + self.b_quadratic * self.x + self.c_quadratic
 
+        lock = threading.Lock()
+        
         # Построение графиков
-        plt.figure(figsize=(8, 6))
-        plt.scatter(self.x, self.y, color='blue', label='Данные')
-        plt.plot(self.x, linear_regression, color='red', label='Линейная регрессия')
-        plt.plot(self.x, quadratic_regression, color='green', label='Квадратичная регрессия')
-        plt.xlabel('X')
-        plt.ylabel('Y')
-        plt.legend()
-        plt.title('Графики линейной и квадратичной регрессии')
-        plt.grid(True)
-
-        plt.tight_layout()
-
-        img = BytesIO()
-        plt.savefig(img, format='png')
-        img.seek(0)
-        
-        plot_url = base64.b64encode(img.getvalue()).decode()
-        plt.close()
-        
-        return plot_url
+        with lock:
+            plt.figure(figsize=(8, 6))
+            plt.scatter(self.x, self.y, color='blue', label='Данные')
+            plt.plot(self.x, linear_regression, color='red', label='Линейная регрессия')
+            plt.plot(self.x, quadratic_regression, color='green', label='Квадратичная регрессия')
+            plt.xlabel('X')
+            plt.ylabel('Y')
+            plt.legend()
+            plt.title('Графики линейной и квадратичной регрессии')
+            plt.grid(True)
+    
+            plt.tight_layout()
+    
+            img = BytesIO()
+            plt.savefig(img, format='png')
+            img.seek(0)
+            
+            plot_url = base64.b64encode(img.getvalue()).decode()
+            plt.close()
+            
+            return plot_url
+    
