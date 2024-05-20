@@ -57,10 +57,12 @@ function removeColumn(n) {
     // Находим таблицу
     let table = document.getElementById('input-table');
 
-    // Проходим по каждой строке в таблице и удаляем последнюю ячейку
-    for (let i = 0; i < table.rows.length; i++) {
-        for (let j = 0; j < n; j++) {
-            table.rows[i].deleteCell(-1);
+    if (tableLenght() != 2) {
+        // Проходим по каждой строке в таблице и удаляем последнюю ячейку
+        for (let i = 0; i < table.rows.length; i++) {
+            for (let j = 0; j < n; j++) {
+                table.rows[i].deleteCell(-1);
+            }
         }
     }
 }
@@ -77,6 +79,17 @@ function csvToArray (csv) {
     	return row.split(",");
     });
 };
+
+function tableLenght() {
+    // Находим таблицу
+    let table = document.getElementById('input-table');
+
+    const headerRow = table.querySelector('tr');
+    const headerCells = Array.from(headerRow.querySelectorAll('td'));
+    const columnCount = headerCells.length;
+
+    return columnCount;
+}
 
 function loadFromCSV() {
     const input = document.createElement('input');
@@ -101,9 +114,7 @@ function loadFromCSV() {
                 // Находим таблицу
                 let table = document.getElementById('input-table');
 
-                const headerRow = table.querySelector('tr');
-                const headerCells = Array.from(headerRow.querySelectorAll('td'));
-                const columnCount = headerCells.length;
+                const columnCount = tableLenght();
 
                 removeColumn(columnCount);
                 
@@ -121,17 +132,17 @@ function loadFromCSV() {
                     });
 
                     // Добавляем дополнительные пустые ячейки, если необходимо
-                    const emptyColumns = Math.max(0, array[0].length - rowData.length);
-                    if (emptyColumns > 0) {
-                        for (let i = 0; i < emptyColumns; i++) {
-                            const cell = document.createElement('td');
-                            const input = document.createElement('input');
-                            input.type = 'number';
-                            input.value = '0';
-                            cell.appendChild(input);
-                            row.appendChild(cell);
-                        }
-                    }
+                    //const emptyColumns = Math.max(0, array[0].length - rowData.length);
+                    //if (emptyColumns > 0) {
+                    //    for (let i = 0; i < emptyColumns; i++) {
+                    //        const cell = document.createElement('td');
+                    //        const input = document.createElement('input');
+                    //        input.type = 'number';
+                    //        input.value = '0';
+                    //        cell.appendChild(input);
+                    //        row.appendChild(cell);
+                    //    }
+                    //}
                 });
             };
             

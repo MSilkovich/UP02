@@ -8,11 +8,6 @@
             font-size: 25px;
         }
 
-        .sigma {
-            font-size: 30px;
-            vertical-align: middle;
-        }
-
         .container {
         display: flex;
         }
@@ -20,6 +15,10 @@
         .column {
             flex: 1;
             padding: 0 10px;
+        }
+
+        .column p:not(:first-child) {
+            margin-top: 15px;
         }
 
         #container-1234 {
@@ -40,13 +39,10 @@
         <div class="container">
             <div class="column">
                 <p>a<sub>0</sub> = {{ a0 }}</p>
-                <p><span class="sigma">Σ</span>x = </p>
-                <p><span class="sigma">Σ</span>x<sup>2</sup> = </p>
+                <p>R<sup>2</sup> = {{ r_square_linear }}</p>
             </div>
             <div class="column">
                 <p>a<sub>1</sub> =  {{ a1 }}</p>
-                <p><span class="sigma">Σ</span>y = </p>
-                <p><span class="sigma">Σ</span>xy = </p>
             </div>
         </div>
         
@@ -55,19 +51,13 @@
         <div class="container">
             <div class="column">
                 <p>a<sub>0</sub> =  {{ a }}</p>
-                <p><span class="sigma">Σ</span>x = </p>
-                <p><span class="sigma">Σ</span>x<sup>2</sup> = </p>
+                <p>R<sup>2</sup> = {{ r_square_quadratic }}</p>
             </div>
             <div class="column">
                 <p>a<sub>1</sub> =  {{ b }}</p>
-                <p><span class="sigma">Σ</span>x<sup>3</sup> = </p>
-                <p><span class="sigma">Σ</span>x<sup>4</sup> = </p>
             </div>
             <div class="column">
                 <p>a<sub>2</sub> =  {{ c }}</p>
-                <p><span class="sigma">Σ</span>y = </p>
-                <p><span class="sigma">Σ</span>xy = </p>
-                <p><span class="sigma">Σ</span>x<sup>2</sup>y = </p>
             </div>
         </div>
     </div>

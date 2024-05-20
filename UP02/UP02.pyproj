@@ -31,7 +31,6 @@
     <Compile Include="runserver.py" />
     <Compile Include="UP02\code\approximation.py" />
     <Compile Include="UP02\code\comparations.py" />
-    <Compile Include="UP02\code\input.py" />
     <Compile Include="UP02\code\quadratic.py" />
     <Compile Include="UP02\code\__init__.py" />
     <Compile Include="UP02\__init__.py" />
@@ -45,9 +44,12 @@
     <Folder Include="UP02\static\fonts\" />
     <Folder Include="UP02\static\scripts\" />
     <Folder Include="UP02\templates\" />
+    <Folder Include="UP02\tmp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="UP02\nice_data.csv" />
+    <Content Include="UP02\pathetic_data.csv" />
     <Content Include="UP02\static\content\bootstrap.css" />
     <Content Include="UP02\static\content\bootstrap.min.css" />
     <Content Include="UP02\static\content\compare.css" />
@@ -81,6 +83,9 @@
     <Content Include="UP02\templates\index.html" />
     <Content Include="UP02\templates\layout.html" />
     <Content Include="UP02\templates\theory.html" />
+    <Content Include="UP02\templates\uncorrect_input.html" />
+    <Content Include="UP02\test_data.csv" />
+    <Content Include="UP02\tmp\127.0.0.1.json" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">

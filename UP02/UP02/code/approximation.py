@@ -13,10 +13,10 @@ def linear_approximation(x, y):
     a0, a1 = p
 
     # Рассчитываем коэффициент детерминации R2
-    y_fit = np.polyval(p, x)
-    y_mean = np.mean(y)
-    ss_tot = np.sum((y - y_mean)**2)
-    ss_res = np.sum((y - y_fit)**2)
-    r_squared = 1 - ss_res / ss_tot
+    # y_fit = np.polyval(p, x)
+    # y_mean = np.mean(y)
+    # ss_tot = np.sum((y - y_mean)**2)
+    # ss_res = np.sum((y - y_fit)**2)
+    # r_squared = 1 - ss_res / ss_tot
     
-    return a0, a1, r_squared
+    return round(a0, 4), round(a1, 4)

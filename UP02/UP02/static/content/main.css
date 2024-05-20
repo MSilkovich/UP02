@@ -233,3 +233,16 @@ footer p {
     font-size: 18px;
     color: #3f3f3f;
 }
+
+#json-button-container {
+    margin: 0 auto 15px auto;
+}
+
+#json-button-container button {
+    background-color: aliceblue;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    padding: 7px;
+}

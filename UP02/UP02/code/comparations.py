@@ -64,7 +64,7 @@ class RegressionMetrics:
         ss_tot_linear = np.sum((self.y - np.mean(self.y)) ** 2)
         r_square_linear = 1 - (ss_res_linear / ss_tot_linear) # детерминация
         correlation_linear = np.corrcoef(self.x, self.y)[0, 1] # корреляция
-        return r_square_linear, correlation_linear
+        return round(r_square_linear, 4), round(correlation_linear, 4)
 
     def quadratic_regression_metrics(self):
         """
@@ -85,7 +85,7 @@ class RegressionMetrics:
         ss_tot_quadratic = np.sum((self.y - np.mean(self.y)) ** 2)
         r_square_quadratic = 1 - (ss_res_quadratic / ss_tot_quadratic) # детерминация
         correlation_quadratic = np.corrcoef(self.x, self.y)[0, 1] # корреляция
-        return r_square_quadratic, correlation_quadratic
+        return round(r_square_quadratic, 4), round(correlation_quadratic, 4)
     
     def get_chart(self):
         """

@@ -22,27 +22,27 @@
                     <button id="load-from-csv-btn" type="button" onclick="loadFromCSV(); return false;">Загрузить из .csv</button>
                 </div>
             </div>
-            
+
             <div class="table-container">
                 <div class="table-wrapper">
                     <table id="input-table">
                         <tr>
                             <th><b>X</b></th>
                         </tr>
-        
+
                         <tr>
                             <th><b>Y</b></th>
                         </tr>
                     </table>
                 </div>
             </div>
-    
+
             <div class="tabs-container">
                 <button type="button" onclick="processData('12');" id="btn12">Аппроксимация</button>
                 <button type="button" onclick="processData('3');" id="btn3">Сравнение</button>
                 <button type="button" onclick="processData('4');" id="btn4">Показатели анализа</button>
             </div>
-    
+
             <div class="content-container" id="container-1234"></div>
 
             <script>
@@ -52,7 +52,7 @@
                     var data = [];
                     var file = '';
                     var tag = '';
-                    
+
                     for (var i = 0; i < table.rows.length; i++) {
                         var rowData = [];
                         for (var j = 1; j < table.rows[i].cells.length; j++) {
@@ -60,18 +60,18 @@
                         }
                         data.push(rowData);
                     }
-                    
+
                     switch (t) {
-                        case '12': { file='approximation.html'; tag='container-1234'; break; }
-                        case '3': { file='comparison.html'; tag='container-1234'; break; }
-                        case '4': { file='analyzing.html'; tag='container-1234'; break; }
+                        case '12': { file = 'approximation.html'; tag = 'container-1234'; break; }
+                        case '3': { file = 'comparison.html'; tag = 'container-1234'; break; }
+                        case '4': { file = 'analyzing.html'; tag = 'container-1234'; break; }
                     }
 
                     // Отправка данных на сервер (можно использовать AJAX запрос)
                     var xhr = new XMLHttpRequest();
                     xhr.open('POST', `/load-html/${file}/${tag}`, true);
                     xhr.setRequestHeader('Content-Type', 'application/json');
-                    xhr.onreadystatechange = function() {
+                    xhr.onreadystatechange = function () {
                         if (xhr.readyState === XMLHttpRequest.DONE) {
                             if (xhr.status === 200) {
                                 const myDiv = document.getElementById('container-1234');
@@ -83,21 +83,22 @@
                         }
                     };
                     xhr.send(JSON.stringify(data));
-                    
+
                     return false; // Чтобы форма не отправляла данные по умолчанию
                 }
             </script>
         </form>
-    </div>
-    <div id="csv-button-container">
-        <button id="download-json-btn" type="button">Скачать результаты .json</button>
+        <div id="json-button-container">
+            <button id="download-json-btn" type="button">Скачать результаты .json</button>
 
-        <script>
-            document.getElementById("download-json-btn").onclick = function() {
-                window.location.href = "/download_json";
-            };
-        </script>
+            <script>
+                document.getElementById("download-json-btn").onclick = function () {
+                    window.location.href = "/download_json";
+                };
+            </script>
+        </div>
     </div>
+    
 </body>
 </html>
 
