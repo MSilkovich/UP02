@@ -12,6 +12,7 @@ from flask import abort, make_response, render_template, render_template_string
 from UP02 import app
 from .code import *
 import numpy as np
+import pandas as pd
 
 
 @app.route('/')
@@ -72,7 +73,7 @@ def process_data(file, tag):
     quadratic = Quadratic(np.array(data[0]), np.array(data[1]))
     a, b, c = quadratic.getCoefs()
     # </квадратичная регрессия>
-
+        
     # <сравнение>
     regression_metrics = RegressionMetrics(a0, a1, a, b, c, np.array(data[0]), np.array(data[1]))
     r_square_linear, correlation_linear = regression_metrics.linear_regression_metrics()
@@ -106,7 +107,20 @@ def process_data(file, tag):
                                                             a=a, b=b, c=c, 
                                                             r_square_quadratic=r_square_quadratic))
         elif file == "analyzing.html":
-            response = make_response(render_template_string(html, tag=tag))
+            # вызываем функцию dynamic_series_calculations
+            df, y, delta_y, T = dynamic_series_calculations(np.array(data[0]), np.array(data[1]))
+            
+            # конвертируем все столбцы в числовые типы данных, если это возможно
+            df = df.apply(pd.to_numeric, errors='ignore')
+
+            # преобразуем данные в HTML-код таблицы
+            html_table = df.to_html(index=False, header=False)
+            html_table = html_table.replace('&lt;', '<').replace('&gt;', '>')
+
+            # используем метод render_template_string, чтобы сгенерировать HTML-код страницы
+            html = render_template_string(html, tag=tag, table=html_table, y=y, delta_y=delta_y, T=T)
+
+            response = make_response(html)
         else:
             response = make_response(render_template_string(html, tag=tag))
 
