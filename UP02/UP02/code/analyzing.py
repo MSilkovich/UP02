@@ -46,10 +46,9 @@ def dynamic_series_calculations(years, values):
     # добавляем столбец с годами
     df.insert(0, 'year', years)
 
-    # добавляем значения, которые должны быть выведены в одной строке, в качестве дополнительных столбцов в DataFrame
 
     # удаляем лишние строки
-    df.loc[-1] = ['year', 'Δy<sub>бi</sub>', 'Δy<sub>цi</sub>', 'T<sub>Пбi</sub>', 'T<sub>Пцi</sub>', 'T<sub>Рбi</sub>', 'T<sub>Рцi</sub>']
+    # df.loc[-1] = ['year', 'Δy<sub>бi</sub>', 'Δy<sub>цi</sub>', 'T<sub>Пбi</sub>', 'T<sub>Пцi</sub>', 'T<sub>Рбi</sub>', 'T<sub>Рцi</sub>']
     df.index = df.index + 1
     df = df.sort_index()
 
