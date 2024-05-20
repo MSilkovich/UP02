@@ -127,7 +127,6 @@ function loadFromCSV() {
                         const cell = document.createElement('td');
                         const input = document.createElement('input');
                         input.type = 'text';
-                        // input.type = 'number';
                         input.value = cellData;
                         cell.appendChild(input);
                         table.rows[rowIndex].appendChild(cell);
