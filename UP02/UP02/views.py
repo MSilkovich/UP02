@@ -12,7 +12,6 @@ from flask import abort, make_response, render_template, render_template_string
 from UP02 import app
 from .code import *
 import numpy as np
-from flask import g
 
 
 @app.route('/')
