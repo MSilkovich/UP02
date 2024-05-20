@@ -1,7 +1,8 @@
 import unittest
 import numpy as np
 
-from UP02.UP02.code.comparations import RegressionMetrics
+# from UP02.UP02.code.comparations import RegressionMetrics
+from UP02.UP02 import RegressionMetrics
 
 class Test_RegressionMetrics_tests(unittest.TestCase):
 
@@ -43,5 +44,5 @@ class Test_RegressionMetrics_tests(unittest.TestCase):
         # Проверяем, что возвращаемая строка содержит "base64", что указывает на base64 закодированную картинку
         self.assertIn("base64", plot_data)
 
-
-unittest.main()
+if __name__ == '__main__':
+    unittest.main()
