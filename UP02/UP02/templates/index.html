@@ -89,6 +89,15 @@
             </script>
         </form>
     </div>
+    <div id="csv-button-container">
+        <button id="download-json-btn" type="button">Скачать результаты .json</button>
+
+        <script>
+            document.getElementById("download-json-btn").onclick = function() {
+                window.location.href = "/download_json";
+            };
+        </script>
+    </div>
 </body>
 </html>
 
