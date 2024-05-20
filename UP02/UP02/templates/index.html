@@ -56,7 +56,8 @@
                     for (var i = 0; i < table.rows.length; i++) {
                         var rowData = [];
                         for (var j = 1; j < table.rows[i].cells.length; j++) {
-                            rowData.push(table.rows[i].cells[j].querySelector('input[type="number"]').value);
+                            rowData.push(table.rows[i].cells[j].querySelector('input[type="text"]').value);
+                            // rowData.push(table.rows[i].cells[j].querySelector('input[type="number"]').value);
                         }
                         data.push(rowData);
                     }

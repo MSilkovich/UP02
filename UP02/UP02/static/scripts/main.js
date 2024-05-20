@@ -42,7 +42,8 @@ function addColumn(n) {
         for (let j = 0; j < n; j++) {
             let cell = document.createElement('td');
             let input = document.createElement('input');
-            input.type = 'number';
+            input.type = 'text';
+            // input.type = 'number';
             input.value = '0';
             input.addEventListener('click', function() {
                 this.select();
@@ -125,7 +126,8 @@ function loadFromCSV() {
                         // Создаем новую ячейку в строке
                         const cell = document.createElement('td');
                         const input = document.createElement('input');
-                        input.type = 'number';
+                        input.type = 'text';
+                        // input.type = 'number';
                         input.value = cellData;
                         cell.appendChild(input);
                         table.rows[rowIndex].appendChild(cell);

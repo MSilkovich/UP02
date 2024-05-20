@@ -121,7 +121,7 @@ def process_data(file, tag):
         return response
     
 
-def input_validate(data: list[str]) -> list | str:
+def input_validate(data: list) -> list | str:
     """
     Валидация и преобразование входных данных
     """
