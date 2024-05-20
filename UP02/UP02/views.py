@@ -58,8 +58,8 @@ def theory():
 @app.route('/load-html/<file>/<tag>', methods=['POST'])
 def process_data(file, tag):
     data = input_validate(request.get_json())
-    if not (data is list):
-        with open(f'UP02/templates/uncorrect_input.html', 'r', encoding="utf-8") as f:
+    if not isinstance(data, list):
+        with open(f'UP02\\UP02\\templates\\uncorrect_input.html', 'r', encoding="utf-8") as f:
             html = f.read()
             response = make_response(render_template_string(html, tag=tag, error_message=data))
             response.headers['Content-Type'] = 'text/html; charset=UTF-8'
@@ -88,7 +88,7 @@ def process_data(file, tag):
 
     data_dump = OutputData(a0, a1, a, b, c, r_square_linear, correlation_linear, r_square_quadratic, correlation_quadratic, "chart", resume_compare(r_square_linear, r_square_quadratic))
 
-    with open(f'UP02/templates/{file}', 'r', encoding="utf-8") as f:
+    with open(f'UP02\\UP02\\templates\\{file}', 'r', encoding="utf-8") as f:
         html = f.read()
         response: Response = None
         if file == "comparison.html":
@@ -114,7 +114,7 @@ def process_data(file, tag):
 
         json_data = json.dumps(data_dump.to_json(), indent=4)
         client_ip = request.remote_addr
-        with open(f"UP02/tmp/{client_ip}.json", "w+") as f:
+        with open(f"UP02\\UP02\\tmp\\{client_ip}.json", "w+") as f:
             f.write(json_data)
 
         response.headers['Content-Type'] = 'text/html; charset=UTF-8'
@@ -131,9 +131,10 @@ def input_validate(data: list[str]) -> list | str:
                 return "Функция не может быть задана одной точкой!"
             for idy, col in enumerate(row):
                 try:
+                    tmp_for_err = row[idy]
                     row[idy] = float(col)
                     if ((idx == 0) and (idy > 0) and (row[idy] <= row[idy - 1])):
-                        return f"Значение '{row[idy]}' [позиция {idx}; {idy}] нарушает прямую последовательность аргумента функции!"
+                        return f"Значение '{tmp_for_err}' [позиция {idx}; {idy}] нарушает прямую последовательность аргумента функции!"
                         
                 except ValueError as ve:
                     t = ve.args[0].split('\'')[1]
