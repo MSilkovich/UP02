@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <title>Аппроксимация</title>
     <style>
-        #analyze-table  {
-            width: 100%;
+        table.dataframe  {
+            margin: 0 auto; 
+            width: 80%; 
             border-collapse: collapse;
+            margin-left: 50px; /* Убираем отступ слева */
+            margin-right: 0; /* Убираем отступ справа */
         }
-        #analyze-table th, #analyze-table td {
+        table.dataframe th {
+            font-size: 20px; 
+        }
+        table.dataframe th, table.dataframe td {
             border: 1px solid black;
-            padding: 8px;
+            padding: 5px; 
             text-align: center;
+        }
+        table.dataframe td {  
+            font-size: 14px;  
         }
         .bottom {
             width: 30px;
@@ -20,6 +29,14 @@
             vertical-align: bottom;
             text-align: center;
             line-height: 30px;
+        }
+        .container {
+            display: flex;
+        }
+
+        .column {
+            flex: 1;
+            padding: 0 10px;
         }
         #table_container {
             border: 3px solid gray;
@@ -33,88 +50,21 @@
     </style>
 </head>
 <body>
-    <div id="table_container" class="content-container">
-        <table id="analyze-table">
-            <tr>
-                <th>Δy<sub>бi</sub></th>
-                <th>Δy<sub>цi</sub></th>
-                <th>T<sub>Пбi</sub></th>
-                <th>T<sub>Пцi</sub></th>
-                <th>T<sub>Рбi</sub></th>
-                <th>T<sub>Рцi</sub></th>
-                <th>
-                    <div class="bottom">
-                        y
-                    </div>
-                </th>
-                <th>
-                    <div class="bottom">
-                        Δy
-                    </div>
-                </th>
-                 <th>
-                    <div class="bottom">
-                        Т<sub>р</sub>
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-    
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-    
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-    
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-    
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-    
-            </tr>
-        </table>
+    <div id="container-1234" class="content-container">
+        <div class="table-container">
+            {{ table|safe }}
+        </div>
+        <div>
+            <div class="column">
+                <p>y =  {{ y }}</p>
+            </div>
+            <div class="column">
+                <p>Δy =  {{ delta_y }}</p>
+            </div>
+            <div class="column">
+                <p>T =  {{ T }}</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

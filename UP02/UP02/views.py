@@ -13,6 +13,8 @@ from UP02 import app
 from .code import *
 import numpy as np
 from flask import g
+from jinja2 import Environment, FileSystemLoader
+import pandas as pd
 
 
 @app.route('/')
@@ -73,7 +75,7 @@ def process_data(file, tag):
     quadratic = Quadratic(np.array(data[0]), np.array(data[1]))
     a, b, c = quadratic.getCoefs()
     # </квадратичная регрессия>
-
+        
     # <сравнение>
     regression_metrics = RegressionMetrics(a0, a1, a, b, c, np.array(data[0]), np.array(data[1]))
     r_square_linear, correlation_linear = regression_metrics.linear_regression_metrics()
@@ -108,7 +110,25 @@ def process_data(file, tag):
                                                             a=a, b=b, c=c, 
                                                             r_square_quadratic=r_square_quadratic))
         elif file == "analyzing.html":
-            response = make_response(render_template_string(html, tag=tag))
+            # вызываем функцию dynamic_series_calculations
+            df, y, delta_y, T = dynamic_series_calculations(np.array(data[0]), np.array(data[1]))
+            
+            # конвертируем все столбцы в числовые типы данных, если это возможно
+            df = df.apply(pd.to_numeric, errors='ignore')
+
+            # конвертируем все числовые значения, кроме первой строки, в нужный формат
+            for col in df.columns:
+                if df[col].dtype != 'object':  # проверяем, что столбец содержит числовые значения
+                    df.loc[1:, col] = df.loc[1:, col].apply(lambda x: '{:.4f}'.format(x))  # конвертируем значения
+
+            # преобразуем данные в HTML-код таблицы
+            html_table = df.to_html(index=False, header=False)
+            html_table = html_table.replace('&lt;', '<').replace('&gt;', '>')
+
+            # используем метод render_template_string, чтобы сгенерировать HTML-код страницы
+            html = render_template_string(html, tag=tag, table=html_table, y=y, delta_y=delta_y, T=T)
+
+            response = make_response(html)
         else:
             response = make_response(render_template_string(html, tag=tag))
 
@@ -127,7 +147,7 @@ def input_validate(data: list) -> list | str:
     """
     try:
         for idx, row in enumerate(data):
-            if len(row) < 2:
+            if len(row) < 3:
                 return "Функция не может быть задана одной точкой!"
             for idy, col in enumerate(row):
                 try:
