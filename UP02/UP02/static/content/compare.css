@@ -62,3 +62,8 @@ p {
     width: 82%;
     overflow: hidden;
 }
+
+.tb-text {
+    font-weight: bold;
+    font-size: 20px;
+}

@@ -83,7 +83,6 @@ def process_data(file, tag):
     # </сравнение>
 
     # <прирост>
-
     # </прирост>
 
     data_dump = OutputData(a0, a1, a, b, c, r_square_linear, correlation_linear, r_square_quadratic, correlation_quadratic, "chart", resume_compare(r_square_linear, r_square_quadratic))
@@ -127,7 +126,7 @@ def input_validate(data: list) -> list | str:
     """
     try:
         for idx, row in enumerate(data):
-            if len(row) < 2:
+            if len(row) < 3:
                 return "Функция не может быть задана одной точкой!"
             for idy, col in enumerate(row):
                 try:
@@ -142,7 +141,7 @@ def input_validate(data: list) -> list | str:
         return data
     except Exception as e:
         return "Ошибка ввода!"
-    
+
 
 @app.route('/download_json')
 def download_json():
@@ -165,4 +164,3 @@ def download_json():
     
     # Отправляем файл 
     return send_file(memory_file, as_attachment=True, download_name='data.json', mimetype='application/json')
-

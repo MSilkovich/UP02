@@ -2,37 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     addColumn(20);
 });
 
-function showContent(tabName) {
-    const selectedContent = document.getElementById(`container-1234`);
-
-    if (selectedContent.style.display != 'block') {
-        selectedContent.style.display = 'block'
-    }
-    
-    if (selectedContent) {
-        switch (tabName) {
-            case '12': { loadHTML('approximation.html', 'container-1234'); break; }
-            case '3': { loadHTML('comparison.html', 'container-1234'); break; }
-            case '4': { loadHTML('analyzing.html', 'container-1234'); break; }
-        }
-    }
-}
-
-function handleButtonClick(id) {
-    const buttons = document.querySelectorAll('.tabs-container button');
-    buttons.forEach(button => {
-        if (button.id === `btn${id}`) {
-            if (!button.classList.contains('active')) {
-                button.classList.add('active');
-                showContent(id);
-            }                
-        } else {
-            button.classList.remove('active');
-        }
-    });
-    
-}
-
 function addColumn(n) {
     // Находим таблицу
     let table = document.getElementById('input-table');
@@ -43,7 +12,6 @@ function addColumn(n) {
             let cell = document.createElement('td');
             let input = document.createElement('input');
             input.type = 'text';
-            // input.type = 'number';
             input.value = '0';
             input.addEventListener('click', function() {
                 this.select();
@@ -58,7 +26,7 @@ function removeColumn(n) {
     // Находим таблицу
     let table = document.getElementById('input-table');
 
-    if (tableLenght() != 2) {
+    if (tableLenght() != 3) {
         // Проходим по каждой строке в таблице и удаляем последнюю ячейку
         for (let i = 0; i < table.rows.length; i++) {
             for (let j = 0; j < n; j++) {
@@ -131,19 +99,6 @@ function loadFromCSV() {
                         cell.appendChild(input);
                         table.rows[rowIndex].appendChild(cell);
                     });
-
-                    // Добавляем дополнительные пустые ячейки, если необходимо
-                    //const emptyColumns = Math.max(0, array[0].length - rowData.length);
-                    //if (emptyColumns > 0) {
-                    //    for (let i = 0; i < emptyColumns; i++) {
-                    //        const cell = document.createElement('td');
-                    //        const input = document.createElement('input');
-                    //        input.type = 'number';
-                    //        input.value = '0';
-                    //        cell.appendChild(input);
-                    //        row.appendChild(cell);
-                    //    }
-                    //}
                 });
             };
             
@@ -154,15 +109,54 @@ function loadFromCSV() {
     input.click();
 }
 
-function loadHTML(file, tag) {
-    fetch(`/load-html/${file}/${tag}`)
-        .then(response => response.text())
-        .then(data => {
-            const myDiv = document.getElementById(tag);
-            // myDiv.innerHTML = ''; // очищаем содержимое контейнера
-            myDiv.outerHTML = data; // устанавливаем новый фрагмент разметки
-        })
-        .catch(error => {
-            console.log('An error occurred:', error);
-        });
+function processData(t) {
+    const buttons = document.querySelectorAll('.tabs-container button');
+    buttons.forEach(button => {
+        if (button.id === `btn${t}`) {
+            if (!button.classList.contains('active')) {
+                button.classList.add('active');
+            }
+        } else {
+            button.classList.remove('active');
+        }
+    });
+
+    // Сбор данных из таблицы в двумерный массив
+    var table = document.getElementById('input-table');
+    var data = [];
+    var file = '';
+    var tag = '';
+
+    for (var i = 0; i < table.rows.length; i++) {
+        var rowData = [];
+        for (var j = 1; j < table.rows[i].cells.length; j++) {
+            rowData.push(table.rows[i].cells[j].querySelector('input[type="text"]').value);
+        }
+        data.push(rowData);
+    }
+
+    switch (t) {
+        case '12': { file = 'approximation.html'; tag = 'container-1234'; break; }
+        case '3': { file = 'comparison.html'; tag = 'container-1234'; break; }
+        case '4': { file = 'analyzing.html'; tag = 'container-1234'; break; }
+    }
+
+    // Отправка данных на сервер (можно использовать AJAX запрос)
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', `/load-html/${file}/${tag}`, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                const myDiv = document.getElementById('container-1234');
+                // myDiv.innerHTML = ''; // очищаем содержимое контейнера
+                myDiv.outerHTML = xhr.responseText; // устанавливаем новый фрагмент разметки
+            } else {
+                console.error('Ошибка при запросе на сервер');
+            }
+        }
+    };
+    xhr.send(JSON.stringify(data));
+
+    return false; // Чтобы форма не отправляла данные по умолчанию
 }

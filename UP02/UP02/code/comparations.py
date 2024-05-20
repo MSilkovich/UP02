@@ -2,6 +2,10 @@ import base64
 from io import BytesIO
 import threading
 import numpy as np
+import matplotlib
+
+matplotlib.use('agg')
+
 import matplotlib.pyplot as plt
 
 
