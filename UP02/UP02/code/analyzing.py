@@ -49,7 +49,7 @@ def dynamic_series_calculations(years, values):
 
     # удаляем лишние строки
     # df.loc[-1] = ['year', 'Δy<sub>бi</sub>', 'Δy<sub>цi</sub>', 'T<sub>Пбi</sub>', 'T<sub>Пцi</sub>', 'T<sub>Рбi</sub>', 'T<sub>Рцi</sub>']
-    df.index = df.index + 1
+    # df.index = df.index + 1
     df = df.sort_index()
 
     return df, averages['ȳ'], averages['Δȳ'], averages['T']
