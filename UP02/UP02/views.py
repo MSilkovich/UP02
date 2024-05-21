@@ -133,12 +133,14 @@ def process_data(file, tag):
             df = df.apply(pd.to_numeric, errors='ignore')
             styled_df = df.style.set_properties(**{'font-size': '15px'})
             
-            styled_df = styled_df.format({'Δy<sub>бi</sub>': '{:.4g}',
+            styled_df = styled_df.format({'год':'{:.0f}',
+                                'Δy<sub>бi</sub>': '{:.4g}',
                                 'Δy<sub>цi</sub>': '{:.4g}',
                                 'T<sub>Пбi</sub>': '{:.4g}',
                                 'T<sub>Пцi</sub>': '{:.4g}',
                                 'T<sub>Рбi</sub>': '{:.4g}',
                                 'T<sub>Рцi</sub>': '{:.4g}'})
+
             # преобразуем данные в HTML-код таблицы
             html_table = styled_df.to_html(index=False, header=False)
             html_table = html_table.replace('&lt;', '<').replace('&gt;', '>')
