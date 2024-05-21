@@ -4,11 +4,32 @@
     <meta charset="UTF-8">
     <title>Аппроксимация</title>
     <style>
+        table {
+            margin-left: 80px; /* устанавливаем нужное значение */
+          }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-size: 18px; /* устанавливаем размер шрифта */
+          }
+          th, td {
+            padding: 5px; /* устанавливаем отступы между ячейками */
+          }
+
+            /* устанавливаем ширину для элементов td и th */
+            td, th {
+              width: 90px; /* устанавливаем нужное значение */
+            }
+          
+            /* центрируем содержимое ячеек */
+            td, th {
+              text-align: center;
+            }
         table.dataframe  {
             margin: 0 auto; 
             width: 80%; 
             border-collapse: collapse;
-            margin-left: 50px; /* Убираем отступ слева */
+            margin-left: 100px; /* Убираем отступ слева */
             margin-right: 0; /* Убираем отступ справа */
         }
         table.dataframe th {
