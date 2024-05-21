@@ -102,9 +102,12 @@ def process_data(file, tag):
     # преобразуем данные в HTML-код таблицы
     html_table = df.to_html(index=False, header=False)
     html_table = html_table.replace('&lt;', '<').replace('&gt;', '>')
+
+    # вызываем функцию dynamic_series_calculations
+    df, y, delta_y, T = dynamic_series_calculations(np.array(data[0]), np.array(data[1])) # дата-фрейм, ... , среднее значение роста   
     # </прирост>
 
-    data_dump = OutputData(a0, a1, a, b, c, r_square_linear, correlation_linear, r_square_quadratic, correlation_quadratic, "no chart", get_resume(r_square_linear, r_square_quadratic))
+    data_dump = OutputData(a0, a1, a, b, c, r_square_linear, correlation_linear, r_square_quadratic, correlation_quadratic, "no chart", get_resume(r_square_linear, r_square_quadratic), y, delta_y, T)
 
     with open(f'UP02\\UP02\\templates\\{file}', 'r', encoding="utf-8") as f:
         html = f.read()
@@ -126,9 +129,6 @@ def process_data(file, tag):
                                                             a=a, b=b, c=c, 
                                                             r_square_quadratic=R))
         elif file == "analyzing.html":
-            # вызываем функцию dynamic_series_calculations
-            df, y, delta_y, T = dynamic_series_calculations(np.array(data[0]), np.array(data[1]))
-            
             # конвертируем все столбцы в числовые типы данных, если это возможно
             df = df.apply(pd.to_numeric, errors='ignore')
             styled_df = df.style.set_properties(**{'font-size': '15px'})
