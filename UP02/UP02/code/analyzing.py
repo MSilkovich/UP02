@@ -45,7 +45,7 @@ def dynamic_series_calculations(years, values):
 
     # добавляем столбец с годами
     # df.insert(0, 'year', years)
-
+    df = df.drop(0)
 
     # удаляем лишние строки
     # df.loc[-1] = ['year', 'Δy<sub>бi</sub>', 'Δy<sub>цi</sub>', 'T<sub>Пбi</sub>', 'T<sub>Пцi</sub>', 'T<sub>Рбi</sub>', 'T<sub>Рцi</sub>']
