@@ -50,6 +50,11 @@ class RegressionMetrics:
         self.x = x
         self.y = y
 
+
+    def __str__(self) -> str:
+        return f"a_linear = {self.a_linear} b_linear = {self.b_linear} a_quadratic = {self.a_quadratic} b_quadratic = {self.b_quadratic} c_quadratic = {self.c_quadratic} x = {self.x} y = {self.y}"
+
+
     def linear_regression_metrics(self):
         """
         Метод для вычисления коэффициента детерминации линейной регрессии
