@@ -54,6 +54,18 @@ def theory():
                 year=datetime.now().year
     )
 
+def get_resume(r_square_linear, r_square_quadratic):
+    try:
+        if r_square_linear < r_square_quadratic:
+            if r_square_linear == r_square_quadratic:
+                return "На допустимой точности ни одна из функций не имеет преимущества"
+            if r_square_linear == 999 or r_square_quadratic == 999:
+                return "Невозможно сравнить функции"
+            return "Квадратичная функция аппроксимурует данные лучше"
+        return "Линейная функция аппроксимурует данные лучше"
+    except:
+        return "Невозможно сравнить функции"
+
 
 @app.route('/load-html/<file>/<tag>', methods=['POST'])
 def process_data(file, tag):
@@ -79,13 +91,19 @@ def process_data(file, tag):
     r_square_linear, correlation_linear = regression_metrics.linear_regression_metrics()
     r_square_quadratic, correlation_quadratic = regression_metrics.quadratic_regression_metrics()
     chart = regression_metrics.get_chart()
-    resume_compare=lambda r_square_linear, r_square_quadratic: "Квадратичная функция аппроксимурует данные лучше" if r_square_linear < r_square_quadratic else "На допустимой точности ни одна из функций не имеет преимущества" if r_square_linear == r_square_quadratic else "Линейная функция аппроксимурует данные лучше"
     # </сравнение>
 
     # <прирост>
+    # вызываем функцию dynamic_series_calculations
+    df, y, delta_y, T = dynamic_series_calculations(np.array(data[0]), np.array(data[1]))
+    # конвертируем все столбцы в числовые типы данных, если это возможно
+    df = df.apply(pd.to_numeric, errors='ignore')
+    # преобразуем данные в HTML-код таблицы
+    html_table = df.to_html(index=False, header=False)
+    html_table = html_table.replace('&lt;', '<').replace('&gt;', '>')
     # </прирост>
 
-    data_dump = OutputData(a0, a1, a, b, c, r_square_linear, correlation_linear, r_square_quadratic, correlation_quadratic, "chart", resume_compare(r_square_linear, r_square_quadratic))
+    data_dump = OutputData(a0, a1, a, b, c, r_square_linear, correlation_linear, r_square_quadratic, correlation_quadratic, "no chart", get_resume(r_square_linear, r_square_quadratic))
 
     with open(f'UP02\\UP02\\templates\\{file}', 'r', encoding="utf-8") as f:
         html = f.read()
@@ -98,7 +116,7 @@ def process_data(file, tag):
                                                              r_square_quadratic=r_square_quadratic,
                                                              correlation_quadratic=correlation_quadratic,
                                                              chart=chart,
-                                                             resume=resume_compare(r_square_linear, r_square_quadratic)))
+                                                             resume=get_resume(r_square_linear, r_square_quadratic)))
         elif file == "approximation.html":
             response = make_response(render_template_string(html, 
                                                             tag=tag, 
@@ -107,16 +125,6 @@ def process_data(file, tag):
                                                             a=a, b=b, c=c, 
                                                             r_square_quadratic=r_square_quadratic))
         elif file == "analyzing.html":
-            # вызываем функцию dynamic_series_calculations
-            df, y, delta_y, T = dynamic_series_calculations(np.array(data[0]), np.array(data[1]))
-            
-            # конвертируем все столбцы в числовые типы данных, если это возможно
-            df = df.apply(pd.to_numeric, errors='ignore')
-
-            # преобразуем данные в HTML-код таблицы
-            html_table = df.to_html(index=False, header=False)
-            html_table = html_table.replace('&lt;', '<').replace('&gt;', '>')
-
             # используем метод render_template_string, чтобы сгенерировать HTML-код страницы
             html = render_template_string(html, tag=tag, table=html_table, y=y, delta_y=delta_y, T=T)
 
@@ -140,7 +148,7 @@ def input_validate(data: list) -> list | str:
     try:
         for idx, row in enumerate(data):
             if len(row) < 3:
-                return "Функция не может быть задана одной точкой!"
+                return "Нужно 3 и более точек для аппроксимации!"
             for idy, col in enumerate(row):
                 try:
                     tmp_for_err = row[idy]
