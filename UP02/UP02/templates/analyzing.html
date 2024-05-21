@@ -4,45 +4,47 @@
     <meta charset="UTF-8">
     <title>Аппроксимация</title>
     <style>
-        table {
-            margin-left: 80px; /* устанавливаем нужное значение */
-          }
-        table, th, td {
+        table[id^="T_"] {
+            margin: 0 auto; /* устанавливаем нужное значение */
+        }
+
+        table[id^="T_"], th[id^="T_"], td[id^="T_"] {
             border: 1px solid black;
             border-collapse: collapse;
             font-size: 18px; /* устанавливаем размер шрифта */
-          }
-          th, td {
-            padding: 5px; /* устанавливаем отступы между ячейками */
-          }
-
-            /* устанавливаем ширину для элементов td и th */
-            td, th {
-              width: 90px; /* устанавливаем нужное значение */
-            }
-          
-            /* центрируем содержимое ячеек */
-            td, th {
-              text-align: center;
-            }
-        table.dataframe  {
-            margin: 0 auto; 
-            width: 80%; 
-            border-collapse: collapse;
-            margin-left: 100px; /* Убираем отступ слева */
-            margin-right: 0; /* Убираем отступ справа */
         }
-        table.dataframe th {
-            font-size: 20px; 
+        
+        /* устанавливаем ширину для элементов td и th */
+        td[id^="T_"], th[id^="T_"] {
+            padding: 5px;
+            width: 90px; /* устанавливаем нужное значение */
         }
-        table.dataframe th, table.dataframe td {
-            border: 1px solid black;
-            padding: 5px; 
+        
+        /* центрируем содержимое ячеек */
+        td[id^="T_"], th[id^="T_"] {
             text-align: center;
         }
-        table.dataframe td {  
-            font-size: 14px;  
+
+        table[id^="T_"] {
+            margin: 0 auto;
+            width: 80%;
+            border-collapse: collapse;
         }
+
+        th[id^="T_"] {
+            font-size: 25px;
+        }
+
+        th[id^="T_"], td[id^="T_"] {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+
+        td[id^="T_"] {
+            font-size: 20px;
+        }
+
         .bottom {
             width: 30px;
             height: 30px;
@@ -51,6 +53,7 @@
             text-align: center;
             line-height: 30px;
         }
+
         .container {
             display: flex;
         }
@@ -58,7 +61,9 @@
         .column {
             flex: 1;
             padding: 0 10px;
+            text-align: center;
         }
+
         #table_container {
             border: 3px solid gray;
             border-radius: 0 0 10px 10px;
