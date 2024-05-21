@@ -127,7 +127,7 @@ def process_data(file, tag):
                                                             a0=a0, a1=a1, 
                                                             r_square_linear=r_square_linear,
                                                             a=a, b=b, c=c, 
-                                                            r_square_quadratic=R))
+                                                            r_square_quadratic=r_square_quadratic))
         elif file == "analyzing.html":
             # конвертируем все столбцы в числовые типы данных, если это возможно
             df = df.apply(pd.to_numeric, errors='ignore')
