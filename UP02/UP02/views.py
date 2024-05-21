@@ -56,13 +56,14 @@ def theory():
 
 def get_resume(r_square_linear, r_square_quadratic):
     try:
+        if r_square_linear == r_square_quadratic:
+            return "На допустимой точности ни одна из функций не имеет преимущества"
         if r_square_linear < r_square_quadratic:
-            if r_square_linear == r_square_quadratic:
-                return "На допустимой точности ни одна из функций не имеет преимущества"
             if r_square_linear == 999 or r_square_quadratic == 999:
                 return "Невозможно сравнить функции"
             return "Квадратичная функция аппроксимурует данные лучше"
-        return "Линейная функция аппроксимурует данные лучше"
+        else:
+            return "Линейная функция аппроксимурует данные лучше"
     except:
         return "Невозможно сравнить функции"
 
@@ -83,7 +84,7 @@ def process_data(file, tag):
 
     # <квадратичная регрессия>
     quadratic = Quadratic(np.array(data[0]), np.array(data[1]))
-    a, b, c = quadratic.getCoefs()
+    a, b, c, R = quadratic.getCoefs()
     # </квадратичная регрессия>
         
     # <сравнение>
@@ -123,7 +124,7 @@ def process_data(file, tag):
                                                             a0=a0, a1=a1, 
                                                             r_square_linear=r_square_linear,
                                                             a=a, b=b, c=c, 
-                                                            r_square_quadratic=r_square_quadratic))
+                                                            r_square_quadratic=R))
         elif file == "analyzing.html":
             # вызываем функцию dynamic_series_calculations
             df, y, delta_y, T = dynamic_series_calculations(np.array(data[0]), np.array(data[1]))

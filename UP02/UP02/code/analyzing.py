@@ -41,10 +41,10 @@ def dynamic_series_calculations(years, values):
     # plt.rcParams['text.latex.unicode'] = True
 
     # создаем DataFrame из значений, которые должны быть выведены в нескольких строках
-    # df = pd.DataFrame(calculations)
+    df = pd.DataFrame(calculations)
 
     # добавляем столбец с годами
-    df.insert(0, 'year', years)
+    # df.insert(0, 'year', years)
 
 
     # удаляем лишние строки

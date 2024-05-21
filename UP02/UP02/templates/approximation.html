@@ -39,7 +39,7 @@
         <div class="container">
             <div class="column">
                 <p>a<sub>0</sub> = {{ a0 }}</p>
-                <p>R<sup>2</sup> = {{ r_square_linear }}</p>
+                <p>R<sup>2</sup> = {{ "Не имеет значения" if r_square_linear > 1 else r_square_linear }}</p>
             </div>
             <div class="column">
                 <p>a<sub>1</sub> =  {{ a1 }}</p>
@@ -51,7 +51,7 @@
         <div class="container">
             <div class="column">
                 <p>a<sub>0</sub> =  {{ a }}</p>
-                <p>R<sup>2</sup> = {{ r_square_quadratic }}</p>
+                <p>R<sup>2</sup> = {{ "Не имеет значения" if r_square_quadratic > 1 else r_square_quadratic }}</p>
             </div>
             <div class="column">
                 <p>a<sub>1</sub> =  {{ b }}</p>
