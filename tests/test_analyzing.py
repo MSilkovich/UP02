@@ -28,14 +28,6 @@ class TestDynamicSeriesCalculations(unittest.TestCase):
         expected_avg_dy = 11.03
         expected_avg_t = 1.1
 
-        print(df)
-        print()
-        print(expected_df)
-
-        print(avg_y)
-        print(avg_dy)
-        print(avg_t)
-
         pd.testing.assert_frame_equal(df, expected_df)
         self.assertEqual(round(avg_y, 2), expected_avg_y)
         self.assertEqual(round(avg_dy, 2), expected_avg_dy)
@@ -67,13 +59,6 @@ class TestDynamicSeriesCalculations_One(unittest.TestCase):
         df = df.astype(int)
         expected_df = expected_df.astype(int)
 
-        print(df)
-        print()
-        print(expected_df)
-
-        print(avg_y)
-        print(avg_dy)
-        print(avg_t)
 
         pd.testing.assert_frame_equal(df, expected_df)
         self.assertEqual(round(avg_y, 2), expected_avg_y)
@@ -102,15 +87,6 @@ class TestDynamicSeriesCalculations_Normal2(unittest.TestCase):
         expected_avg_dy = 1.0
         expected_avg_t = 1.3
 
-
-
-        print(df)
-        print()
-        print(expected_df)
-
-        print(avg_y)
-        print(avg_dy)
-        print(avg_t)
         df = df.astype(float)
         expected_df = expected_df.astype(float)
         pd.testing.assert_frame_equal(df, expected_df)
@@ -141,15 +117,6 @@ class TestDynamicSeriesCalculations_Normal3(unittest.TestCase):
         expected_avg_dy = 6.0
         expected_avg_t = 1.9
 
-
-
-        print(df)
-        print()
-        print(expected_df)
-
-        print(avg_y)
-        print(avg_dy)
-        print(avg_t)
         df = df.astype(float)
         expected_df = expected_df.astype(float)
         pd.testing.assert_frame_equal(df, expected_df)
@@ -179,13 +146,6 @@ class TestDynamicSeriesCalculations_Negative(unittest.TestCase):
         expected_avg_dy = 6.0
         expected_avg_t = 1.9
 
-        print(df)
-        print()
-        print(expected_df)
-
-        print(avg_y)
-        print(avg_dy)
-        print(avg_t)
         df = df.astype(float)
         expected_df = expected_df.astype(float)
         pd.testing.assert_frame_equal(df, expected_df)
