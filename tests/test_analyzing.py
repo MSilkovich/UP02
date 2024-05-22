@@ -2,7 +2,7 @@ import unittest
 import pandas as pd
 from UP02.UP02 import dynamic_series_calculations
 
-class TestDynamicSeriesCalculations(unittest.TestCase):
+class TestDynamicSeriesCalculations_NormalValuesWithDivision(unittest.TestCase):
     def setUp(self):
         self.years = [2010, 2011, 2012, 2013]
         self.values = [100, 110, 121, 133.1]
@@ -34,7 +34,7 @@ class TestDynamicSeriesCalculations(unittest.TestCase):
         self.assertEqual(round(avg_t, 1), expected_avg_t)
 
 
-class TestDynamicSeriesCalculations_One(unittest.TestCase):
+class TestDynamicSeriesCalculations_SameValues(unittest.TestCase):
     def setUp(self):
         self.years = [0, 1, 2, 3]
         self.values = [1, 1, 1, 1]
@@ -65,7 +65,7 @@ class TestDynamicSeriesCalculations_One(unittest.TestCase):
         self.assertEqual(round(avg_dy, 2), expected_avg_dy)
         self.assertEqual(round(avg_t, 1), expected_avg_t)
 
-class TestDynamicSeriesCalculations_Normal2(unittest.TestCase):
+class TestDynamicSeriesCalculations_NormalValues1(unittest.TestCase):
     def setUp(self):
         self.years = [1, 2, 3, 4,5,6]
         self.values = [1, 2, 3, 4,5,6]
@@ -95,7 +95,7 @@ class TestDynamicSeriesCalculations_Normal2(unittest.TestCase):
         self.assertEqual(round(avg_t, 1), expected_avg_t)
 
 
-class TestDynamicSeriesCalculations_Normal3(unittest.TestCase):
+class TestDynamicSeriesCalculations_NormalValues2(unittest.TestCase):
     def setUp(self):
         self.years = [2018, 2019, 2020, 2021,2022]
         self.values = [1, 10, 30, 5,25]
@@ -124,7 +124,7 @@ class TestDynamicSeriesCalculations_Normal3(unittest.TestCase):
         self.assertEqual(round(avg_dy, 2), expected_avg_dy)
         self.assertEqual(round(avg_t, 1), expected_avg_t)
 
-class TestDynamicSeriesCalculations_Negative(unittest.TestCase):
+class TestDynamicSeriesCalculations_NegativeValues(unittest.TestCase):
     def setUp(self):
         self.years = [1, 2, 3, 4, 5]
         self.values = [1, -30, 20, -45, 25]
