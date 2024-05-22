@@ -152,6 +152,77 @@ class TestDynamicSeriesCalculations_NegativeValues(unittest.TestCase):
         self.assertEqual(round(avg_y, 2), expected_avg_y)
         self.assertEqual(round(avg_dy, 2), expected_avg_dy)
         self.assertEqual(round(avg_t, 1), expected_avg_t)
+        
+        
+        
+class TestDynamicSeriesCalculations_AbnormalValues(unittest.TestCase):
+    def setUp(self):
+        self.years = ["a", "a", "a", "a", "a"]
+        self.values = ["b", "B","b", "B", "B"]
+
+    def test_dynamic_series_calculations_correctness(self):
+        try:
+            df, avg_y, avg_dy, avg_t = dynamic_series_calculations(self.years, self.values)
+
+            expected_df = pd.DataFrame({
+                'год': [],
+                    'Δy<sub>бi</sub>': [None, 0, 0, 0, 0],
+                    'Δy<sub>цi</sub>': [0.0, 0, 0, 0, 0],
+                    'T<sub>Пбi</sub>': [None, 0, 0, 0, 0],
+                    'T<sub>Пцi</sub>': [0.0, 0, 0, 0, 0],
+                    'T<sub>Рбi</sub>': [None, 0, 0, 0, 0],
+                    'T<sub>Рцi</sub>': [0.0, 0, 0, 0, 0],
+                })
+            expected_df = expected_df.drop(0)
+            expected_avg_y = 0
+            expected_avg_dy = 0
+            expected_avg_t = 0
+
+            df = df.astype(float)
+            expected_df = expected_df.astype(float)
+            pd.testing.ass_frame_equal(df, expected_df)
+            self.assertNotEqual(round(avg_y, 2), expected_avg_y)
+            self.assertNotEqual(round(avg_dy, 2), expected_avg_dy)
+            self.assertNotEqual(round(avg_t, 1), expected_avg_t)
+        except Exception:
+            print(f"Некорректный ввод данных")
+            
+            
+            
+class TestDynamicSeriesCalculations_EmptyValues(unittest.TestCase):
+    def setUp(self):
+        self.years = []
+        self.values = []
+
+    def test_dynamic_series_calculations_correctness(self):
+        try:
+            df, avg_y, avg_dy, avg_t = dynamic_series_calculations(self.years, self.values)
+
+            expected_df = pd.DataFrame({
+                'год': [],
+                    'Δy<sub>бi</sub>': [None, 0, 0, 0, 0],
+                    'Δy<sub>цi</sub>': [0.0, 0, 0, 0, 0],
+                    'T<sub>Пбi</sub>': [None, 0, 0, 0, 0],
+                    'T<sub>Пцi</sub>': [0.0, 0, 0, 0, 0],
+                    'T<sub>Рбi</sub>': [None, 0, 0, 0, 0],
+                    'T<sub>Рцi</sub>': [0.0, 0, 0, 0, 0],
+                })
+            expected_df = expected_df.drop(0)
+            expected_avg_y = 0
+            expected_avg_dy = 0
+            expected_avg_t = 0
+
+            df = df.astype(float)
+            expected_df = expected_df.astype(float)
+            pd.testing.ass_frame_equal(df, expected_df)
+            self.assertNotEqual(round(avg_y, 2), expected_avg_y)
+            self.assertNotEqual(round(avg_dy, 2), expected_avg_dy)
+            self.assertNotEqual(round(avg_t, 1), expected_avg_t)
+        except Exception as e:
+            print(f"Некорректный ввод данных")
+            print(f"{e}")
+            
+            
 
 if __name__ == '__main__':
     unittest.main()
